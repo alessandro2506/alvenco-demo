@@ -11,15 +11,13 @@ import { navItems } from "@/app.config";
 export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const [scrolled, setScrolled] = useState(!isHome);
+  const [scrollPastHero, setScrollPastHero] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const showBar = !isHome || scrollPastHero;
 
   useEffect(() => {
-    if (!isHome) {
-      setScrolled(true);
-      return;
-    }
-    const onScroll = () => setScrolled(window.scrollY > 72);
+    if (!isHome) return;
+    const onScroll = () => setScrollPastHero(window.scrollY > 72);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -31,8 +29,6 @@ export function SiteHeader() {
       document.body.style.overflow = "";
     };
   }, [drawerOpen]);
-
-  const showBar = scrolled || !isHome;
 
   return (
     <>
