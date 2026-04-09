@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Check } from "lucide-react";
+import type { ContactTopic } from "@/lib/contact";
 
 export type PricingPlan = {
   id: string;
@@ -20,7 +21,8 @@ type PricingClusterProps = {
   description: string;
   plans: [PricingPlan, PricingPlan, PricingPlan];
   ctaLabel: string;
-  ctaHref: string;
+  /** Query `topic` sulla pagina Contatti (allineato a Resend / form). */
+  contactTopic: ContactTopic;
 };
 
 export function PricingCluster({
@@ -29,11 +31,21 @@ export function PricingCluster({
   description,
   plans,
   ctaLabel,
-  ctaHref,
+  contactTopic,
 }: PricingClusterProps) {
   const [active, setActive] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: "-12% 0px" });
+
+  const contactHref = useMemo(() => {
+    const section = (eyebrow ?? title).trim();
+    const params = new URLSearchParams({
+      topic: contactTopic,
+      plan: plans[active].name,
+      section,
+    });
+    return `/contatti?${params.toString()}`;
+  }, [contactTopic, plans, active, eyebrow, title]);
 
   return (
     <motion.section
@@ -124,7 +136,7 @@ export function PricingCluster({
 
       <div className="mt-6">
         <Link
-          href={ctaHref}
+          href={contactHref}
           className="inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-5 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-slate-800 sm:w-auto"
         >
           {ctaLabel}

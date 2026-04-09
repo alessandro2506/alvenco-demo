@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 };
 
 type PageProps = {
-  searchParams: Promise<{ topic?: string }>;
+  searchParams: Promise<{ topic?: string; plan?: string; section?: string }>;
 };
 
 export default async function ContattiPage({ searchParams }: PageProps) {
-  const { topic } = await searchParams;
+  const { topic, plan, section } = await searchParams;
 
   return (
     <div className="pb-24 pt-28 sm:pt-32">
@@ -59,10 +59,16 @@ export default async function ContattiPage({ searchParams }: PageProps) {
             Modulo richiesta
           </h2>
           <p className="mt-1 text-sm text-slate-600">
-            Demo senza backend: nessun dato lascia il browser.
+            Le richieste sono inviate in modo sicuro al nostro team via email
+            (Resend).
           </p>
           <div className="mt-6">
-            <ContactForm defaultTopic={topic ?? ""} />
+            <ContactForm
+              key={`${topic ?? ""}-${plan ?? ""}-${section ?? ""}`}
+              defaultTopic={topic ?? ""}
+              defaultPlan={plan ?? ""}
+              defaultSection={section ?? ""}
+            />
           </div>
         </div>
       </div>

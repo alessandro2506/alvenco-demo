@@ -5,6 +5,7 @@ import {
   Search,
   Smartphone,
 } from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
 
 export const metadata: Metadata = {
   title: "Servizi",
@@ -92,6 +93,30 @@ export default function ServiziPage() {
             </article>
           ))}
         </div>
+
+        <section
+          id="richiedi-preventivo"
+          className="mt-24 scroll-mt-28 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50/90 via-white to-cyan-50/40 p-8 shadow-sm sm:p-10"
+          aria-labelledby="servizi-preventivo-heading"
+        >
+          <p className="text-xs font-semibold uppercase tracking-widest text-cyan-600">
+            Preventivo
+          </p>
+          <h2
+            id="servizi-preventivo-heading"
+            className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl"
+          >
+            Richiedi una proposta sui servizi
+          </h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Descrivi obiettivi e contesto: indica se ti interessa un ambito
+            specifico (web, app, cloud, SEO) o un pacchetto combinato. Ti
+            rispondiamo con una stima chiara.
+          </p>
+          <div className="mx-auto mt-8 max-w-xl">
+            <ContactForm defaultSection="Pagina Servizi" />
+          </div>
+        </section>
       </div>
     </div>
   );

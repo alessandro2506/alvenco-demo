@@ -72,7 +72,7 @@ export default function HomePage() {
           description="Manutenzione, hosting e ottimizzazioni continue: meno rischio operativo, più lead qualificati."
           plans={webPlans}
           ctaLabel="Richiedi preventivo — Sito web"
-          ctaHref="/contatti?topic=web"
+          contactTopic="web"
         />
 
         <PricingCluster
@@ -81,7 +81,7 @@ export default function HomePage() {
           description="Dal MVP al prodotto in produzione: unificazione iOS/Android, integrazioni e metriche di adozione."
           plans={mobilePlans}
           ctaLabel="Inizia ora — App mobile"
-          ctaHref="/contatti?topic=mobile"
+          contactTopic="mobile"
         />
 
         <PricingCluster
@@ -90,7 +90,7 @@ export default function HomePage() {
           description="Negozi su misura con focus su magazzino, integrazioni e conversione checkout."
           plans={ecommercePlans}
           ctaLabel="Richiedi preventivo — E-commerce"
-          ctaHref="/contatti?topic=ecommerce"
+          contactTopic="ecommerce"
         />
 
         <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-600/5 via-white to-cyan-500/10 p-8 text-center">
