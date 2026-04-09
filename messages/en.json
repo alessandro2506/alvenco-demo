@@ -27,13 +27,16 @@
     "navLabel": "Footer",
     "legal": "Marketing demo."
   },
+  "common": {
+    "scrollToTop": "Back to top"
+  },
   "hero": {
     "headlineBefore": "Websites, e-commerce and mobile apps that",
     "headlineAccent": "convert and scale",
     "sub": "Team split across the UK and Italy: solid engineering, business-led UX and clear support in English and Italian. From MVP to enterprise product.",
     "ctaPrimary": "Get started",
     "ctaSecondary": "Explore services",
-    "ctaPlans": "Clear plans, transparent investment",
+    "ctaPlans": "View plans",
     "trust": "SSL, SEO best practices and cloud-ready architectures."
   },
   "home": {

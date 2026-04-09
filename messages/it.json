@@ -27,13 +27,16 @@
     "navLabel": "Footer",
     "legal": "Demo marketing."
   },
+  "common": {
+    "scrollToTop": "Torna in cima"
+  },
   "hero": {
     "headlineBefore": "Siti web, e-commerce e app mobile che",
     "headlineAccent": "convertono e scalano",
     "sub": "Team distribuito tra Regno Unito e Italia: ingegneria solida, UX orientata al business e supporto chiaro in inglese e italiano. Dal MVP al prodotto enterprise.",
     "ctaPrimary": "Inizia ora",
     "ctaSecondary": "Scopri i servizi",
-    "ctaPlans": "Piani chiari, investimento trasparente",
+    "ctaPlans": "Vedi i piani",
     "trust": "SSL, best practice SEO e architetture cloud-ready."
   },
   "home": {

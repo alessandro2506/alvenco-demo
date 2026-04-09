@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import { siteConfig } from "@/app.config";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
@@ -82,6 +83,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <SiteHeader />
           <main className="flex-1">{children}</main>
           <SiteFooter />
+          <ScrollToTop />
         </NextIntlClientProvider>
       </body>
     </html>
