@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { navItems } from "@/app.config";
+import { navRoutes } from "@/app.config";
 import { AlvencoLogo } from "@/components/alvenco-logo";
+import { Link, usePathname } from "@/i18n/routing";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const locale = useLocale();
+  const t = useTranslations("nav");
   const isHome = pathname === "/";
   const [scrollPastHero, setScrollPastHero] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -39,12 +41,31 @@ export function SiteHeader() {
             : "border-b border-transparent bg-transparent"
         }`}
       >
-        <div className="relative mx-auto flex min-h-14 max-w-6xl items-center justify-end px-4 py-1.5 sm:min-h-[3.75rem] sm:px-6">
+        <div className="relative mx-auto flex min-h-14 max-w-6xl items-center justify-end gap-2 px-4 py-1.5 sm:min-h-[3.75rem] sm:px-6">
           {showBar ? (
-            <div className="absolute left-3 top-1/2 max-w-[min(100%,calc(100%-5rem))] -translate-y-1/2 sm:left-5">
+            <div className="absolute left-3 top-1/2 max-w-[min(100%,calc(100%-8rem))] -translate-y-1/2 sm:left-5">
               <AlvencoLogo variant="header" linkToHome />
             </div>
           ) : null}
+
+          <div className="hidden items-center gap-1 rounded-xl border border-slate-200/80 bg-white/90 px-1 py-0.5 text-xs font-semibold shadow-sm sm:flex">
+            <Link
+              href={pathname}
+              locale="it"
+              className={`rounded-lg px-2 py-1 ${locale === "it" ? "bg-slate-900 text-white" : "text-slate-600 hover:bg-slate-100"}`}
+              aria-current={locale === "it" ? "true" : undefined}
+            >
+              {t("langIt")}
+            </Link>
+            <Link
+              href={pathname}
+              locale="en"
+              className={`rounded-lg px-2 py-1 ${locale === "en" ? "bg-slate-900 text-white" : "text-slate-600 hover:bg-slate-100"}`}
+              aria-current={locale === "en" ? "true" : undefined}
+            >
+              {t("langEn")}
+            </Link>
+          </div>
 
           <button
             type="button"
@@ -56,7 +77,7 @@ export function SiteHeader() {
             }`}
             aria-expanded={drawerOpen}
             aria-controls="site-drawer"
-            aria-label="Apri menu"
+            aria-label={t("openMenu")}
           >
             <Menu className="h-6 w-6" />
           </button>
@@ -73,14 +94,14 @@ export function SiteHeader() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               className="fixed inset-0 z-[60] bg-slate-900/40 backdrop-blur-sm"
-              aria-label="Chiudi menu"
+              aria-label={t("closeMenu")}
               onClick={() => setDrawerOpen(false)}
             />
             <motion.nav
               id="site-drawer"
               role="dialog"
               aria-modal="true"
-              aria-label="Navigazione"
+              aria-label={t("navLabel")}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -89,19 +110,39 @@ export function SiteHeader() {
             >
               <div className="flex items-center justify-between border-b border-slate-100 px-4 py-4">
                 <span className="text-sm font-semibold text-slate-900">
-                  Menu
+                  {t("menu")}
                 </span>
                 <button
                   type="button"
                   onClick={() => setDrawerOpen(false)}
                   className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100"
-                  aria-label="Chiudi"
+                  aria-label={t("close")}
                 >
                   <X className="h-5 w-5" />
                 </button>
               </div>
+
+              <div className="flex gap-2 border-b border-slate-100 px-4 py-3">
+                <Link
+                  href={pathname}
+                  locale="it"
+                  onClick={() => setDrawerOpen(false)}
+                  className={`flex-1 rounded-lg py-2 text-center text-sm font-semibold ${locale === "it" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"}`}
+                >
+                  {t("langIt")}
+                </Link>
+                <Link
+                  href={pathname}
+                  locale="en"
+                  onClick={() => setDrawerOpen(false)}
+                  className={`flex-1 rounded-lg py-2 text-center text-sm font-semibold ${locale === "en" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"}`}
+                >
+                  {t("langEn")}
+                </Link>
+              </div>
+
               <ul className="flex flex-1 flex-col gap-1 p-4">
-                {navItems.map((item) => {
+                {navRoutes.map((item) => {
                   const active = pathname === item.href;
                   return (
                     <li key={item.href}>
@@ -114,7 +155,7 @@ export function SiteHeader() {
                             : "text-slate-700 hover:bg-slate-50"
                         }`}
                       >
-                        {item.label}
+                        {t(item.key)}
                       </Link>
                     </li>
                   );
@@ -126,7 +167,7 @@ export function SiteHeader() {
                   onClick={() => setDrawerOpen(false)}
                   className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition hover:brightness-105"
                 >
-                  Richiedi preventivo
+                  {t("quote")}
                 </Link>
               </div>
             </motion.nav>

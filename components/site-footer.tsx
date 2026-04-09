@@ -1,25 +1,32 @@
-import Link from "next/link";
-import { siteConfig, navItems } from "@/app.config";
+"use client";
+
+import { useTranslations } from "next-intl";
+import { siteConfig, navRoutes } from "@/app.config";
+import { Link } from "@/i18n/routing";
 
 export function SiteFooter() {
+  const t = useTranslations("nav");
+  const tf = useTranslations("footer");
+  const tm = useTranslations("meta");
+
   return (
     <footer className="border-t border-slate-200 bg-slate-50/80">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-14 sm:flex-row sm:items-start sm:justify-between sm:px-6">
         <div>
           <p className="text-lg font-bold text-slate-900">{siteConfig.shortName}</p>
           <p className="mt-2 max-w-sm text-sm text-slate-600">
-            {siteConfig.description}
+            {tm("defaultDescription")}
           </p>
         </div>
-        <nav aria-label="Footer">
+        <nav aria-label={tf("navLabel")}>
           <ul className="flex flex-col gap-2 sm:items-end">
-            {navItems.map((item) => (
+            {navRoutes.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   className="text-sm font-medium text-slate-600 hover:text-blue-600"
                 >
-                  {item.label}
+                  {t(item.key)}
                 </Link>
               </li>
             ))}
@@ -27,7 +34,7 @@ export function SiteFooter() {
         </nav>
       </div>
       <div className="border-t border-slate-200/80 py-6 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} {siteConfig.name}. Demo marketing.
+        © {new Date().getFullYear()} {siteConfig.name}. {tf("legal")}
       </div>
     </footer>
   );

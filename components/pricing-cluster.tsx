@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Check } from "lucide-react";
 import type { ContactTopic } from "@/lib/contact";

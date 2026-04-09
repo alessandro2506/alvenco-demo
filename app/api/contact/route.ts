@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import {
-  CONTACT_TOPIC_LABELS,
-  isContactTopic,
-  sanitizeText,
-} from "@/lib/contact";
+  apiContactStrings,
+  apiErrors,
+  contactTopicLabel,
+} from "@/lib/contact-labels";
+import { isContactTopic, sanitizeText } from "@/lib/contact";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -15,10 +16,7 @@ export async function POST(request: Request) {
 
   if (!key || !to || !from) {
     return NextResponse.json(
-      {
-        error:
-          "Configurazione email incompleta. Imposta RESEND_API_KEY, CONTACT_TO_EMAIL e RESEND_FROM_EMAIL.",
-      },
+      { error: apiErrors("it").config },
       { status: 503 },
     );
   }
@@ -27,14 +25,17 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "JSON non valido" }, { status: 400 });
+    return NextResponse.json({ error: apiErrors("it").json }, { status: 400 });
   }
 
   if (!body || typeof body !== "object") {
-    return NextResponse.json({ error: "Body non valido" }, { status: 400 });
+    return NextResponse.json({ error: apiErrors("it").body }, { status: 400 });
   }
 
   const o = body as Record<string, unknown>;
+  const uiLocale = sanitizeText(o.locale, 5) === "en" ? "en" : "it";
+  const errors = apiErrors(uiLocale);
+  const L = apiContactStrings(uiLocale);
 
   const name = sanitizeText(o.name, 200);
   const email = sanitizeText(o.email, 254);
@@ -44,29 +45,26 @@ export async function POST(request: Request) {
   const section = sanitizeText(o.section, 200) ?? "";
 
   if (!name || !email || !message || !topicRaw || !isContactTopic(topicRaw)) {
-    return NextResponse.json(
-      { error: "Campi obbligatori mancanti o non validi." },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: errors.fields }, { status: 400 });
   }
 
   if (!EMAIL_RE.test(email)) {
-    return NextResponse.json({ error: "Email non valida." }, { status: 400 });
+    return NextResponse.json({ error: errors.emailInvalid }, { status: 400 });
   }
 
-  const topicLabel = CONTACT_TOPIC_LABELS[topicRaw];
-  const subjectParts = ["[Alvenco]", topicLabel];
+  const topicLabel = contactTopicLabel(uiLocale, topicRaw);
+  const subjectParts = [L.emailSubjectPrefix, topicLabel];
   if (plan) subjectParts.push(`— ${plan}`);
 
   const html = `
-    <h2>Nuova richiesta dal sito</h2>
-    <p><strong>Argomento:</strong> ${escapeHtml(topicLabel)}</p>
-    ${plan ? `<p><strong>Piano / tab selezionato:</strong> ${escapeHtml(plan)}</p>` : ""}
-    ${section ? `<p><strong>Sezione:</strong> ${escapeHtml(section)}</p>` : ""}
-    <p><strong>Nome:</strong> ${escapeHtml(name)}</p>
-    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+    <h2>${escapeHtml(L.emailHeading)}</h2>
+    <p><strong>${escapeHtml(L.emailTopic)}:</strong> ${escapeHtml(topicLabel)}</p>
+    ${plan ? `<p><strong>${escapeHtml(L.emailPlan)}:</strong> ${escapeHtml(plan)}</p>` : ""}
+    ${section ? `<p><strong>${escapeHtml(L.emailSection)}:</strong> ${escapeHtml(section)}</p>` : ""}
+    <p><strong>${escapeHtml(L.emailName)}:</strong> ${escapeHtml(name)}</p>
+    <p><strong>${escapeHtml(L.emailEmail)}:</strong> ${escapeHtml(email)}</p>
     <hr />
-    <p><strong>Messaggio</strong></p>
+    <p><strong>${escapeHtml(L.emailMessage)}</strong></p>
     <pre style="white-space:pre-wrap;font-family:sans-serif">${escapeHtml(message)}</pre>
   `;
 
@@ -82,10 +80,7 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error("[contact] Resend:", error);
-    return NextResponse.json(
-      { error: "Invio non riuscito. Riprova più tardi." },
-      { status: 502 },
-    );
+    return NextResponse.json({ error: errors.sendFailed }, { status: 502 });
   }
 
   return NextResponse.json({ ok: true, id: data?.id ?? null });

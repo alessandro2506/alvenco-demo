@@ -1,21 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import {
-  CONTACT_TOPIC_LABELS,
-  CONTACT_TOPICS,
-  type ContactTopic,
-  isContactTopic,
-} from "@/lib/contact";
-
-const topicOptions: { value: ContactTopic | ""; label: string }[] = [
-  { value: "", label: "Seleziona un argomento" },
-  ...CONTACT_TOPICS.map((value) => ({
-    value,
-    label: CONTACT_TOPIC_LABELS[value],
-  })),
-];
+import { CONTACT_TOPICS, type ContactTopic, isContactTopic } from "@/lib/contact";
 
 type Props = {
   defaultTopic?: string;
@@ -28,6 +16,8 @@ export function ContactForm({
   defaultPlan = "",
   defaultSection = "",
 }: Props) {
+  const t = useTranslations("contactForm");
+  const locale = useLocale();
   const [topic, setTopic] = useState<ContactTopic | "">(() =>
     isContactTopic(defaultTopic) ? defaultTopic : "",
   );
@@ -39,13 +29,32 @@ export function ContactForm({
   );
   const [errorMessage, setErrorMessage] = useState("");
 
+  const topicOptions = useMemo(
+    () => [
+      { value: "" as const, label: t("topicPlaceholder") },
+      ...CONTACT_TOPICS.map((value) => ({
+        value,
+        label: t(
+          value === "web"
+            ? "topicWeb"
+            : value === "mobile"
+              ? "topicMobile"
+              : value === "ecommerce"
+                ? "topicEcommerce"
+                : "topicOther",
+        ),
+      })),
+    ],
+    [t],
+  );
+
   const planLabel = useMemo(() => defaultPlan.trim(), [defaultPlan]);
   const sectionLabel = useMemo(() => defaultSection.trim(), [defaultSection]);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!topic || !isContactTopic(topic)) {
-      setErrorMessage("Seleziona un argomento.");
+      setErrorMessage(t("errorTopic"));
       setStatus("error");
       return;
     }
@@ -62,13 +71,14 @@ export function ContactForm({
           message,
           plan: planLabel,
           section: sectionLabel,
+          locale,
         }),
       });
       const data = (await res.json().catch(() => ({}))) as {
         error?: string;
       };
       if (!res.ok) {
-        setErrorMessage(data.error ?? "Invio non riuscito.");
+        setErrorMessage(data.error ?? t("errorGeneric"));
         setStatus("error");
         return;
       }
@@ -78,7 +88,7 @@ export function ContactForm({
       setMessage("");
       setTopic(isContactTopic(defaultTopic) ? defaultTopic : "");
     } catch {
-      setErrorMessage("Errore di rete. Riprova.");
+      setErrorMessage(t("errorNetwork"));
       setStatus("error");
     }
   }
@@ -96,18 +106,16 @@ export function ContactForm({
           className="rounded-xl border border-cyan-200/80 bg-gradient-to-br from-cyan-50/80 to-white px-4 py-3 text-sm text-slate-700"
           role="status"
         >
-          <span className="font-semibold text-slate-900">
-            Preventivo richiesto per:
-          </span>{" "}
+          <span className="font-semibold text-slate-900">{t("quoteBanner")}</span>{" "}
           {planLabel ? (
             <>
-              piano <strong>{planLabel}</strong>
+              {t("planWord")} <strong>{planLabel}</strong>
               {sectionLabel ? " · " : ""}
             </>
           ) : null}
           {sectionLabel ? (
             <>
-              sezione <strong>{sectionLabel}</strong>
+              {t("sectionWord")} <strong>{sectionLabel}</strong>
             </>
           ) : null}
         </div>
@@ -118,7 +126,7 @@ export function ContactForm({
           htmlFor="name"
           className="block text-sm font-medium text-slate-700"
         >
-          Nome e cognome
+          {t("name")}
         </label>
         <input
           id="name"
@@ -136,7 +144,7 @@ export function ContactForm({
           htmlFor="email"
           className="block text-sm font-medium text-slate-700"
         >
-          Email
+          {t("email")}
         </label>
         <input
           id="email"
@@ -155,7 +163,7 @@ export function ContactForm({
           htmlFor="topic"
           className="block text-sm font-medium text-slate-700"
         >
-          Argomento
+          {t("topic")}
         </label>
         <select
           id="topic"
@@ -174,9 +182,9 @@ export function ContactForm({
           disabled={status === "loading"}
           className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-cyan-500/40 transition focus:border-cyan-400 focus:ring-2 disabled:opacity-60"
         >
-          {topicOptions.map((t) => (
-            <option key={t.value || "empty"} value={t.value}>
-              {t.label}
+          {topicOptions.map((opt) => (
+            <option key={opt.value || "empty"} value={opt.value}>
+              {opt.label}
             </option>
           ))}
         </select>
@@ -186,7 +194,7 @@ export function ContactForm({
           htmlFor="message"
           className="block text-sm font-medium text-slate-700"
         >
-          Messaggio
+          {t("message")}
         </label>
         <textarea
           id="message"
@@ -197,7 +205,7 @@ export function ContactForm({
           onChange={(e) => setMessage(e.target.value)}
           disabled={status === "loading"}
           className="mt-1.5 w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-cyan-500/40 transition focus:border-cyan-400 focus:ring-2 disabled:opacity-60"
-          placeholder="Obiettivi, budget indicativo, timeline…"
+          placeholder={t("messagePlaceholder")}
         />
       </div>
       <button
@@ -205,12 +213,12 @@ export function ContactForm({
         disabled={status === "loading"}
         className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition hover:brightness-105 disabled:opacity-60 sm:w-auto sm:px-10"
       >
-        {status === "loading" ? "Invio in corso…" : "Invia richiesta"}
+        {status === "loading" ? t("submitting") : t("submit")}
       </button>
 
       {status === "success" ? (
         <p className="text-sm font-medium text-cyan-700" role="status">
-          Messaggio inviato. Ti risponderemo al più presto.
+          {t("success")}
         </p>
       ) : null}
       {status === "error" && errorMessage ? (

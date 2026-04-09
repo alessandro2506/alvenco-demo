@@ -1,11 +1,14 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { AlvencoLogo } from "@/components/alvenco-logo";
+import { Link } from "@/i18n/routing";
 
 export function HeroHome() {
+  const t = useTranslations("hero");
+
   return (
     <section className="relative overflow-hidden pb-16 pt-[4.5rem] sm:pb-20 sm:pt-[4.75rem]">
       <div
@@ -34,9 +37,9 @@ export function HeroHome() {
           transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl"
         >
-          Siti web, e-commerce e app mobile che{" "}
+          {t("headlineBefore")}{" "}
           <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-            convertono e scalano
+            {t("headlineAccent")}
           </span>
         </motion.h1>
 
@@ -46,9 +49,7 @@ export function HeroHome() {
           transition={{ duration: 0.45, delay: 0.16 }}
           className="mt-5 max-w-2xl text-lg text-slate-600 sm:text-xl"
         >
-          Team distribuito tra Regno Unito e Italia: ingegneria solida, UX
-          orientata al business e supporto chiaro in inglese e italiano. Dal
-          MVP al prodotto enterprise.
+          {t("sub")}
         </motion.p>
 
         <motion.div
@@ -61,14 +62,14 @@ export function HeroHome() {
             href="/contatti"
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:brightness-105"
           >
-            Inizia ora
+            {t("ctaPrimary")}
             <ArrowRight className="h-5 w-5" aria-hidden />
           </Link>
           <Link
             href="/servizi"
             className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-7 py-3.5 text-base font-semibold text-slate-800 shadow-sm transition hover:border-cyan-400/50 hover:bg-slate-50"
           >
-            Scopri i servizi
+            {t("ctaSecondary")}
           </Link>
         </motion.div>
 
@@ -79,7 +80,7 @@ export function HeroHome() {
           className="mt-10 flex items-center gap-2 text-sm text-slate-500"
         >
           <ShieldCheck className="h-5 w-5 text-cyan-600" aria-hidden />
-          <span>SSL, best practice SEO e architetture cloud-ready.</span>
+          <span>{t("trust")}</span>
         </motion.div>
       </div>
     </section>

@@ -1,0 +1,312 @@
+{
+  "meta": {
+    "defaultTitle": "Alvenco — Web, E-commerce & Mobile",
+    "defaultDescription": "Sviluppo web, e-commerce e app mobile (React Native / Flutter) per aziende UK e Italia. ROI, performance e scalabilità.",
+    "servicesTitle": "Servizi",
+    "servicesDescription": "Siti web, app mobile, cloud e SEO orientati al ROI per clienti UK e Italia.",
+    "visionTitle": "Vision",
+    "visionDescription": "Scalabilità tecnologica, architetture evolutive e roadmap prodotto per Alvenco.",
+    "contactsTitle": "Contatti",
+    "contactsDescription": "Richiedi un preventivo o una call conoscitiva con Alvenco Ltd."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Servizi",
+    "vision": "Vision",
+    "contacts": "Contatti",
+    "quote": "Richiedi preventivo",
+    "menu": "Menu",
+    "closeMenu": "Chiudi menu",
+    "close": "Chiudi",
+    "navLabel": "Navigazione",
+    "openMenu": "Apri menu",
+    "langIt": "IT",
+    "langEn": "EN"
+  },
+  "footer": {
+    "navLabel": "Footer",
+    "legal": "Demo marketing."
+  },
+  "hero": {
+    "headlineBefore": "Siti web, e-commerce e app mobile che",
+    "headlineAccent": "convertono e scalano",
+    "sub": "Team distribuito tra Regno Unito e Italia: ingegneria solida, UX orientata al business e supporto chiaro in inglese e italiano. Dal MVP al prodotto enterprise.",
+    "ctaPrimary": "Inizia ora",
+    "ctaSecondary": "Scopri i servizi",
+    "trust": "SSL, best practice SEO e architetture cloud-ready."
+  },
+  "home": {
+    "valueCards": [
+      {
+        "title": "Web & landing ad alta conversione",
+        "body": "Core Web Vitals, SEO tecnico e messaggi chiari per mercati UK/IT."
+      },
+      {
+        "title": "App native-quality, un solo team",
+        "body": "React Native e Flutter con release pipeline e store readiness."
+      },
+      {
+        "title": "Dati che guidano il budget",
+        "body": "Event tracking, funnel e report leggibili per decisioni commerciali."
+      }
+    ],
+    "pricingIntroEyebrow": "Investimento chiaro",
+    "pricingIntroTitle": "Piani pensati per monetizzare e scalare",
+    "pricingIntroBody": "Tre linee di prodotto distinte: sito, app mobile ed e-commerce. Ogni blocco ha tre tab animate al scroll per confrontare rapidamente il ROI.",
+    "ctaBandTitle": "Vuoi un piano su misura o un audit gratuito?",
+    "ctaBandBody": "Raccontaci obiettivi e timeline: rispondiamo entro un giorno lavorativo.",
+    "ctaBandButton": "Parla con noi"
+  },
+  "pricingWeb": {
+    "eyebrow": "Sito web professionale",
+    "title": "Presenza digitale e crescita misurabile",
+    "description": "Manutenzione, hosting e ottimizzazioni continue: meno rischio operativo, più lead qualificati.",
+    "cta": "Richiedi preventivo — Sito web",
+    "plans": [
+      {
+        "id": "web-a",
+        "name": "Plan A",
+        "price": "€49/mese",
+        "subtitle": "Ideale per presenza online stabile e sicura.",
+        "highlight": false,
+        "bullets": [
+          "Manutenzione core (CMS / stack)",
+          "Hosting gestito e certificato SSL",
+          "Backup programmati e aggiornamenti di sicurezza"
+        ]
+      },
+      {
+        "id": "web-b",
+        "name": "Plan B",
+        "price": "€149/mese",
+        "subtitle": "Per chi vuole crescere con dati e priorità.",
+        "highlight": true,
+        "bullets": [
+          "Tutto del Plan A",
+          "Supporto prioritario (SLA dedicato)",
+          "Analytics e report mensili sulle conversioni",
+          "Ottimizzazioni CRO leggere incluse"
+        ]
+      },
+      {
+        "id": "web-c",
+        "name": "Plan C",
+        "price": "€299/mese",
+        "subtitle": "Partner tecnico con roadmap condivisa.",
+        "highlight": false,
+        "bullets": [
+          "Tutto del Plan B",
+          "Sprint mensili di sviluppo (feature / landing)",
+          "A/B test e integrazioni marketing",
+          "Review architetturale e performance budget"
+        ]
+      }
+    ]
+  },
+  "pricingMobile": {
+    "eyebrow": "Mobile app",
+    "title": "React Native & Flutter",
+    "description": "Dal MVP al prodotto in produzione: unificazione iOS/Android, integrazioni e metriche di adozione.",
+    "cta": "Inizia ora — App mobile",
+    "plans": [
+      {
+        "id": "mob-starter",
+        "name": "MVP App",
+        "price": "da €4.900",
+        "subtitle": "React Native o Flutter — time-to-market rapido.",
+        "highlight": false,
+        "bullets": [
+          "1 piattaforma (iOS o Android) + design system",
+          "Auth, notifiche push, analytics base",
+          "Pubblicazione store assistita"
+        ]
+      },
+      {
+        "id": "mob-growth",
+        "name": "Cross-Platform",
+        "price": "da €12.900",
+        "subtitle": "Stesso codice, massima copertura.",
+        "highlight": true,
+        "bullets": [
+          "iOS + Android da codebase unica",
+          "Integrazioni API / pagamenti / deep link",
+          "CI/CD e build firmate",
+          "3 mesi di bugfix post-launch"
+        ]
+      },
+      {
+        "id": "mob-scale",
+        "name": "Prodotto & Scale",
+        "price": "Su preventivo",
+        "subtitle": "Moduli nativi, offline-first, enterprise.",
+        "highlight": false,
+        "bullets": [
+          "Architetture modulari e feature flags",
+          "Ottimizzazione performance e crash-free sessions",
+          "Roadmap trimestrale con KPI prodotto"
+        ]
+      }
+    ]
+  },
+  "pricingEcommerce": {
+    "eyebrow": "E-commerce",
+    "title": "Custom store & inventory",
+    "description": "Negozi su misura con focus su magazzino, integrazioni e conversione checkout.",
+    "cta": "Richiedi preventivo — E-commerce",
+    "plans": [
+      {
+        "id": "eco-starter",
+        "name": "Store Essentials",
+        "price": "da €89/mese",
+        "subtitle": "Custom store + gestione ordini essenziale.",
+        "highlight": false,
+        "bullets": [
+          "Tema su misura o headless storefront",
+          "Catalogo, varianti, tasse e spedizioni",
+          "Pagamenti PSD2-ready (Stripe / provider EU)"
+        ]
+      },
+      {
+        "id": "eco-inventory",
+        "name": "Inventory Pro",
+        "price": "da €199/mese",
+        "subtitle": "Sync magazzino e canali multipli.",
+        "highlight": true,
+        "bullets": [
+          "Integrazione ERP / WMS / marketplace",
+          "Sincronizzazione stock in near real-time",
+          "Automazioni alert e rifornimento",
+          "Dashboard operativa per il team"
+        ]
+      },
+      {
+        "id": "eco-enterprise",
+        "name": "Commerce Suite",
+        "price": "Su preventivo",
+        "subtitle": "E-commerce complesso e internazionale.",
+        "highlight": false,
+        "bullets": [
+          "Multi-store, multi-valuta, B2B + B2C",
+          "Logistica avanzata e regole commerciali",
+          "Osservabilità, A/B test catalogo, SLA dedicato"
+        ]
+      }
+    ]
+  },
+  "contactForm": {
+    "topicPlaceholder": "Seleziona un argomento",
+    "topicWeb": "Sito web professionale",
+    "topicMobile": "App mobile (RN / Flutter)",
+    "topicEcommerce": "E-commerce / inventory",
+    "topicOther": "Altro",
+    "quoteBanner": "Preventivo richiesto per:",
+    "planWord": "piano",
+    "sectionWord": "sezione",
+    "name": "Nome e cognome",
+    "email": "Email",
+    "topic": "Argomento",
+    "message": "Messaggio",
+    "messagePlaceholder": "Obiettivi, budget indicativo, timeline…",
+    "submit": "Invia richiesta",
+    "submitting": "Invio in corso…",
+    "success": "Messaggio inviato. Ti risponderemo al più presto.",
+    "errorTopic": "Seleziona un argomento.",
+    "errorNetwork": "Errore di rete. Riprova.",
+    "errorGeneric": "Invio non riuscito."
+  },
+  "contactsPage": {
+    "eyebrow": "Contatti",
+    "title": "Parliamo del vostro prossimo rilascio",
+    "intro": "Rispondiamo dal Regno Unito e dall'Italia. Indicate stack, mercato di riferimento e urgenza: prepareremo una proposta chiara.",
+    "formTitle": "Modulo richiesta",
+    "formHint": "Le richieste sono inviate in modo sicuro al nostro team via email (Resend)."
+  },
+  "servicesPage": {
+    "eyebrow": "Servizi",
+    "title": "ROI-first: tecnologia al servizio del business",
+    "intro": "Ogni offerta è strutturata per ridurre rischio, accelerare time-to-value e collegare investimenti marketing a risultati misurabili.",
+    "quoteEyebrow": "Preventivo",
+    "quoteTitle": "Richiedi una proposta sui servizi",
+    "quoteBody": "Descrivi obiettivi e contesto: indica se ti interessa un ambito specifico (web, app, cloud, SEO) o un pacchetto combinato. Ti rispondiamo con una stima chiara.",
+    "defaultSectionLabel": "Pagina Servizi",
+    "items": [
+      {
+        "title": "Siti web",
+        "points": [
+          "Landing e corporate site con performance e accessibilità.",
+          "Stack moderno (Next.js, headless CMS) per velocità e SEO.",
+          "Integrazione analytics, form e automazioni CRM."
+        ]
+      },
+      {
+        "title": "Mobile applications",
+        "points": [
+          "React Native e Flutter: un codebase, store iOS e Android.",
+          "UX nativa, deep link, push e monetizzazione in-app.",
+          "Release train e monitoraggio crash / ANR."
+        ]
+      },
+      {
+        "title": "Cloud solutions",
+        "points": [
+          "Infra su AWS / GCP / Vercel con costi prevedibili.",
+          "CI/CD, ambienti staging, backup e disaster recovery.",
+          "Osservabilità: log, metriche, alerting."
+        ]
+      },
+      {
+        "title": "SEO & marketing",
+        "points": [
+          "SEO tecnico, structured data e content velocity.",
+          "Campagne misurabili: eventi, conversioni, attribution.",
+          "Report mensili con insight azionabili sul funnel."
+        ]
+      }
+    ]
+  },
+  "visionPage": {
+    "eyebrow": "Vision",
+    "title": "Costruiamo prodotti che reggono il domani del vostro mercato",
+    "intro": "La nostra visione è semplice: ogni riga di codice deve supportare la crescita del fatturato, la resilienza operativa e la fiducia degli utenti — con footprint UK e Italia e mindset internazionale.",
+    "pillars": [
+      {
+        "icon": "layers",
+        "title": "Architetture modulari",
+        "body": "Bounded context, API versionate e feature flags: evolvete il prodotto senza bloccare il traffico o il team commerciale."
+      },
+      {
+        "icon": "cpu",
+        "title": "Scalabilità orizzontale",
+        "body": "Stateless services, cache intelligenti e code asincrone per picchi di domanda e campagne seasonal."
+      },
+      {
+        "icon": "rocket",
+        "title": "Time-to-learning",
+        "body": "Telemetria prodotto, experiment platform e cicli di release brevi: decisioni basate su dati, non su opinioni."
+      },
+      {
+        "icon": "sparkles",
+        "title": "AI-ready stack",
+        "body": "Pipeline dati pulite, embedding store e guardrail: pronti per assistenti, search semantica e automazioni sicure."
+      }
+    ]
+  },
+  "apiContact": {
+    "emailSubjectPrefix": "[Alvenco]",
+    "emailHeading": "Nuova richiesta dal sito",
+    "emailTopic": "Argomento",
+    "emailPlan": "Piano / tab selezionato",
+    "emailSection": "Sezione",
+    "emailName": "Nome",
+    "emailEmail": "Email",
+    "emailMessage": "Messaggio"
+  },
+  "apiErrors": {
+    "config": "Configurazione email incompleta. Imposta RESEND_API_KEY, CONTACT_TO_EMAIL e RESEND_FROM_EMAIL.",
+    "json": "JSON non valido",
+    "body": "Body non valido",
+    "fields": "Campi obbligatori mancanti o non validi.",
+    "emailInvalid": "Email non valida.",
+    "sendFailed": "Invio non riuscito. Riprova più tardi."
+  }
+}

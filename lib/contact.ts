@@ -3,13 +3,6 @@ export const CONTACT_TOPICS = ["web", "mobile", "ecommerce", "other"] as const;
 
 export type ContactTopic = (typeof CONTACT_TOPICS)[number];
 
-export const CONTACT_TOPIC_LABELS: Record<ContactTopic, string> = {
-  web: "Sito web professionale",
-  mobile: "App mobile (RN / Flutter)",
-  ecommerce: "E-commerce / inventory",
-  other: "Altro / generico",
-};
-
 export function isContactTopic(v: string): v is ContactTopic {
   return (CONTACT_TOPICS as readonly string[]).includes(v);
 }
