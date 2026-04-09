@@ -225,6 +225,55 @@
     "eyebrow": "Servizi",
     "title": "ROI-first: tecnologia al servizio del business",
     "intro": "Ogni offerta è strutturata per ridurre rischio, accelerare time-to-value e collegare investimenti marketing a risultati misurabili.",
+    "sectorsEyebrow": "Esperienza sul campo",
+    "sectorsTitle": "Settori in cui collaboriamo",
+    "sectorsIntro": "Lavoriamo già con strutture operative reali: siti, portali, integrazioni e strumenti digitali portati in produzione per questi verticali.",
+    "sectors": [
+      {
+        "id": "hotel",
+        "label": "Hotel",
+        "title": "Ospitalità e direct booking",
+        "description": "Progetti per strutture ricettive: motori di prenotazione, multilingua, upsell servizi e integrazioni con channel manager / PMS.",
+        "bullets": [
+          "Siti veloci e mobile-first per ricerca locale e internazionale",
+          "Form e flussi prenotazione con tracciamento conversioni",
+          "SEO hospitality e contenuti stagionali (offerte, eventi)"
+        ]
+      },
+      {
+        "id": "ristorazione",
+        "label": "Ristorazione",
+        "title": "Menu digitali, ordini e brand",
+        "description": "Soluzioni per bar, ristoranti e catene: presenza online, ordinazione, fidelizzazione e coerenza visiva tra sedi.",
+        "bullets": [
+          "Menu, delivery/takeaway e integrazioni pagamento dove serve",
+          "Landing per aperture, promozioni e local SEO",
+          "Strumenti per raccolta recensioni e campagne mirate"
+        ]
+      },
+      {
+        "id": "logistica",
+        "label": "Logistica",
+        "title": "Operazioni, tracking e integrazioni",
+        "description": "Supporto a player logistici e magazzino: dashboard operative, connettori verso gestionali e visibilità per clienti e partner.",
+        "bullets": [
+          "Portali e micro-app per stato spedizioni e notifiche",
+          "API e sincronizzazioni con ERP / WMS",
+          "Monitoraggio performance e affidabilità in produzione"
+        ]
+      },
+      {
+        "id": "veterinario",
+        "label": "Professionisti",
+        "title": "Studi professionali (es. veterinaria)",
+        "description": "Esperienza con studi e cliniche: siti istituzionali, area prenotazioni, educazione al cliente e conformità privacy.",
+        "bullets": [
+          "Siti chiari per servizi, orari e urgenze",
+          "Moduli richiesta appuntamento e reminder (dove applicabile)",
+          "Contenuti di fiducia: team, specializzazioni, FAQ"
+        ]
+      }
+    ],
     "quoteEyebrow": "Preventivo",
     "quoteTitle": "Richiedi una proposta sui servizi",
     "quoteBody": "Descrivi obiettivi e contesto: indica se ti interessa un ambito specifico (web, app, cloud, SEO) o un pacchetto combinato. Ti rispondiamo con una stima chiara.",

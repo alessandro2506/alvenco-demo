@@ -225,6 +225,55 @@
     "eyebrow": "Services",
     "title": "ROI-first: technology in service of the business",
     "intro": "Every offer is structured to reduce risk, speed up time-to-value and tie marketing spend to measurable outcomes.",
+    "sectorsEyebrow": "Hands-on experience",
+    "sectorsTitle": "Sectors we work with",
+    "sectorsIntro": "We already partner with operating businesses: websites, portals, integrations and digital tools shipped to production in these verticals.",
+    "sectors": [
+      {
+        "id": "hotel",
+        "label": "Hotels",
+        "title": "Hospitality & direct booking",
+        "description": "Projects for hotels and B&Bs: booking engines, multilingual sites, upsells and integrations with channel managers / PMS.",
+        "bullets": [
+          "Fast, mobile-first sites for local and international search",
+          "Booking flows and forms with conversion tracking",
+          "Hospitality SEO and seasonal content (offers, events)"
+        ]
+      },
+      {
+        "id": "ristorazione",
+        "label": "Food & beverage",
+        "title": "Digital menus, orders & brand",
+        "description": "Solutions for bars, restaurants and groups: online presence, ordering, loyalty and consistent branding across locations.",
+        "bullets": [
+          "Menus, takeaway/delivery and payment integrations where needed",
+          "Landings for openings, promos and local SEO",
+          "Review capture and targeted campaigns"
+        ]
+      },
+      {
+        "id": "logistica",
+        "label": "Logistics",
+        "title": "Operations, tracking & integrations",
+        "description": "Support for logistics and warehousing: operational dashboards, connectors to back-office systems and visibility for clients and partners.",
+        "bullets": [
+          "Portals and micro-apps for shipment status and notifications",
+          "APIs and sync with ERP / WMS",
+          "Production monitoring for performance and reliability"
+        ]
+      },
+      {
+        "id": "veterinario",
+        "label": "Professionals",
+        "title": "Professional practices (e.g. veterinary)",
+        "description": "Experience with clinics and practices: institutional sites, appointment flows, patient education and privacy-aware design.",
+        "bullets": [
+          "Clear sites for services, hours and emergencies",
+          "Appointment request forms and reminders where applicable",
+          "Trust content: team, specialisations, FAQs"
+        ]
+      }
+    ],
     "quoteEyebrow": "Quote",
     "quoteTitle": "Request a proposal for our services",
     "quoteBody": "Describe goals and context: whether you need web, app, cloud, SEO or a combined package. We’ll reply with a clear estimate.",

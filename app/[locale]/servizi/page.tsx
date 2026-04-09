@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Cloud, Code2, Search, Smartphone } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
+import {
+  ServiceSectorsTabs,
+  type SectorTab,
+} from "@/components/service-sectors-tabs";
 
 const icons = [Code2, Smartphone, Cloud, Search] as const;
 
@@ -24,6 +28,7 @@ export default async function ServiziPage() {
     title: string;
     points: string[];
   }[];
+  const sectors = t.raw("sectors") as SectorTab[];
 
   return (
     <div className="pb-20 pt-28 sm:pt-32">
@@ -35,6 +40,13 @@ export default async function ServiziPage() {
           {t("title")}
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-slate-600">{t("intro")}</p>
+
+        <ServiceSectorsTabs
+          eyebrow={t("sectorsEyebrow")}
+          title={t("sectorsTitle")}
+          intro={t("sectorsIntro")}
+          tabs={sectors}
+        />
 
         <div className="mt-14 grid gap-8 sm:grid-cols-2">
           {items.map((s, i) => {
