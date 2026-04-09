@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowDown, ArrowRight, ShieldCheck } from "lucide-react";
 import { AlvencoLogo } from "@/components/alvenco-logo";
 import { Link } from "@/i18n/routing";
 
@@ -56,21 +56,30 @@ export function HeroHome() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.24 }}
-          className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:gap-5"
+          className="mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:items-center"
         >
-          <Link
-            href="/contatti"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:brightness-105"
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-5">
+            <Link
+              href="/contatti"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:brightness-105"
+            >
+              {t("ctaPrimary")}
+              <ArrowRight className="h-5 w-5" aria-hidden />
+            </Link>
+            <Link
+              href="/servizi"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-7 py-3.5 text-base font-semibold text-slate-800 shadow-sm transition hover:border-cyan-400/50 hover:bg-slate-50"
+            >
+              {t("ctaSecondary")}
+            </Link>
+          </div>
+          <a
+            href="#prezzi"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-500/35 bg-white px-7 py-3 text-base font-semibold text-cyan-800 shadow-sm ring-1 ring-cyan-500/15 transition hover:border-cyan-500/55 hover:bg-cyan-50/80"
           >
-            {t("ctaPrimary")}
-            <ArrowRight className="h-5 w-5" aria-hidden />
-          </Link>
-          <Link
-            href="/servizi"
-            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-7 py-3.5 text-base font-semibold text-slate-800 shadow-sm transition hover:border-cyan-400/50 hover:bg-slate-50"
-          >
-            {t("ctaSecondary")}
-          </Link>
+            {t("ctaPlans")}
+            <ArrowDown className="h-4 w-4 text-cyan-600" aria-hidden />
+          </a>
         </motion.div>
 
         <motion.div

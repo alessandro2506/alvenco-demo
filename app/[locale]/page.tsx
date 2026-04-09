@@ -50,7 +50,7 @@ export default async function HomePage() {
 
       <section
         id="prezzi"
-        className="mx-auto max-w-6xl space-y-12 px-4 py-20 sm:px-6"
+        className="mx-auto max-w-6xl scroll-mt-24 space-y-12 px-4 py-20 sm:scroll-mt-28 sm:px-6"
       >
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-widest text-cyan-600">
