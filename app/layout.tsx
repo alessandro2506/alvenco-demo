@@ -23,11 +23,8 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: [
-      { url: "/logo-icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.png", type: "image/png" },
-    ],
-    apple: "/logo-icon.svg",
+    icon: [{ url: "/simbolo-alvenco_ltd.png", type: "image/png" }],
+    apple: "/simbolo-alvenco_ltd.png",
   },
   openGraph: {
     title: siteConfig.shortName,
