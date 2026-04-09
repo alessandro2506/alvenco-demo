@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/app.config";
+import { AlvencoLogo } from "@/components/alvenco-logo";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -39,23 +39,10 @@ export function SiteHeader() {
             : "border-b border-transparent bg-transparent"
         }`}
       >
-        <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-end px-4 sm:h-[4.25rem] sm:px-6">
+        <div className="relative mx-auto flex min-h-14 max-w-6xl items-center justify-end px-4 py-1.5 sm:min-h-[3.75rem] sm:px-6">
           {showBar ? (
-            <div className="absolute left-4 top-1/2 flex -translate-y-1/2 sm:left-6">
-              <Link
-                href="/"
-                className="flex items-center gap-2"
-                aria-label="Alvenco Ltd — Home"
-              >
-                <Image
-                  src="/logo-full.png"
-                  alt=""
-                  width={140}
-                  height={40}
-                  className="h-8 w-auto sm:h-9"
-                  priority
-                />
-              </Link>
+            <div className="absolute left-3 top-1/2 max-w-[min(100%,calc(100%-5rem))] -translate-y-1/2 sm:left-5">
+              <AlvencoLogo variant="header" linkToHome />
             </div>
           ) : null}
 

@@ -1,13 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck } from "lucide-react";
+import { AlvencoLogo } from "@/components/alvenco-logo";
 
 export function HeroHome() {
   return (
-    <section className="relative overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-32">
+    <section className="relative overflow-hidden pb-16 pt-[4.5rem] sm:pb-20 sm:pt-[4.75rem]">
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden
@@ -21,16 +21,11 @@ export function HeroHome() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10 sm:mb-12"
+          className="mb-6 sm:mb-8"
         >
-          <Image
-            src="/logo-full.png"
-            alt="Alvenco Ltd"
-            width={420}
-            height={120}
-            className="mx-auto h-auto w-[min(100%,280px)] sm:w-[min(100%,360px)]"
-            priority
-          />
+          <div className="flex justify-center">
+            <AlvencoLogo variant="hero" />
+          </div>
         </motion.div>
 
         <motion.h1
