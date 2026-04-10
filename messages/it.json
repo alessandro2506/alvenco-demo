@@ -222,7 +222,8 @@
     "selectPlan": "Scegli il piano",
     "selectPlanPlaceholder": "— Seleziona —",
     "messageDetailsLabel": "Dettagli aggiuntivi (opzionale)",
-    "messagePlanIncluded": "Riepilogo piano (incluso nel messaggio)"
+    "messagePlanIncluded": "Riepilogo piano (incluso nel messaggio)",
+    "topicWord": "argomento"
   },
   "contactsPage": {
     "eyebrow": "Contatti",

@@ -222,7 +222,8 @@
     "selectPlan": "Choose your plan",
     "selectPlanPlaceholder": "— Select —",
     "messageDetailsLabel": "Additional details (optional)",
-    "messagePlanIncluded": "Plan summary (included in your message)"
+    "messagePlanIncluded": "Plan summary (included in your message)",
+    "topicWord": "topic"
   },
   "contactsPage": {
     "eyebrow": "Contact",

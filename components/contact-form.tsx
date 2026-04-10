@@ -105,6 +105,10 @@ export function ContactForm({
   const planLabel = useMemo(() => defaultPlan.trim(), [defaultPlan]);
   const sectionLabel = useMemo(() => defaultSection.trim(), [defaultSection]);
   const visiblePlanLabel = selectedPlan?.name ?? planLabel;
+  const currentTopicLabel = useMemo(
+    () => topicOptions.find((opt) => opt.value === topic)?.label ?? "",
+    [topicOptions, topic],
+  );
 
   const showPlanSelect = topicNeedsPlan(topic) && pricingPlans.length > 0;
 
@@ -131,13 +135,7 @@ export function ContactForm({
       setStatus("error");
       return;
     }
-    if (topicNeedsPlan(topic)) {
-      if (!selectedPlanId || !selectedPlan) {
-        setErrorMessage(t("errorPlan"));
-        setStatus("error");
-        return;
-      }
-    } else if (!messageOther.trim()) {
+    if (!topicNeedsPlan(topic) && !messageOther.trim()) {
       setErrorMessage(t("errorMessageEmpty"));
       setStatus("error");
       return;
@@ -145,9 +143,7 @@ export function ContactForm({
 
     const msg = composedMessage.trim();
     if (!msg) {
-      setErrorMessage(
-        topicNeedsPlan(topic) ? t("errorPlan") : t("errorMessageEmpty"),
-      );
+      setErrorMessage(t("errorMessageEmpty"));
       setStatus("error");
       return;
     }
@@ -197,21 +193,17 @@ export function ContactForm({
       className="space-y-5"
       onSubmit={onSubmit}
     >
-      {visiblePlanLabel || sectionLabel ? (
+      {currentTopicLabel ? (
         <div
           className="rounded-xl border border-cyan-200/80 bg-gradient-to-br from-cyan-50/80 to-white px-4 py-3 text-sm text-slate-700"
           role="status"
         >
           <span className="font-semibold text-slate-900">{t("quoteBanner")}</span>{" "}
+          {t("topicWord")} <strong>{currentTopicLabel}</strong>
           {visiblePlanLabel ? (
             <>
+              {" · "}
               {t("planWord")} <strong>{visiblePlanLabel}</strong>
-              {sectionLabel ? " · " : ""}
-            </>
-          ) : null}
-          {sectionLabel ? (
-            <>
-              {t("sectionWord")} <strong>{sectionLabel}</strong>
             </>
           ) : null}
         </div>
@@ -297,7 +289,6 @@ export function ContactForm({
           <select
             id="contact-plan"
             name="plan"
-            required
             value={selectedPlanId}
             onChange={(e) => {
               const nextPlanId = e.target.value;
@@ -339,11 +330,7 @@ export function ContactForm({
                   {planBlock}
                 </pre>
               </div>
-            ) : (
-              <p className="border-b border-dashed border-slate-100 px-4 py-3 text-sm text-slate-500">
-                {t("selectPlanPlaceholder")}
-              </p>
-            )}
+            ) : null}
             <label htmlFor="message-extra" className="sr-only">
               {t("messageDetailsLabel")}
             </label>

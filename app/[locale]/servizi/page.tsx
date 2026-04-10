@@ -94,7 +94,7 @@ export default async function ServiziPage() {
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">{t("quoteBody")}</p>
           <div className="mx-auto mt-8 max-w-xl">
-            <ContactForm defaultSection={t("defaultSectionLabel")} />
+            <ContactForm />
           </div>
         </section>
       </div>
