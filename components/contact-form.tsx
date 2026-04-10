@@ -105,13 +105,14 @@ export function ContactForm({
   const planLabel = useMemo(() => defaultPlan.trim(), [defaultPlan]);
   const sectionLabel = useMemo(() => defaultSection.trim(), [defaultSection]);
   const visiblePlanLabel = selectedPlan?.name ?? planLabel;
-  const currentTopicLabel = useMemo(
-    () =>
-      topic && topic !== ""
-        ? topicOptions.find((opt) => opt.value === topic)?.label ?? ""
-        : "",
-    [topicOptions, topic],
-  );
+  const hasSelectedTopic = topic !== "" && isContactTopic(topic);
+  const currentTopicLabel = useMemo(() => {
+    if (topic === "web") return t("topicWeb");
+    if (topic === "mobile") return t("topicMobile");
+    if (topic === "ecommerce") return t("topicEcommerce");
+    if (topic === "other") return t("topicOther");
+    return "";
+  }, [topic, t]);
 
   const showPlanSelect = topicNeedsPlan(topic) && pricingPlans.length > 0;
 
@@ -196,7 +197,7 @@ export function ContactForm({
       className="space-y-5"
       onSubmit={onSubmit}
     >
-      {currentTopicLabel ? (
+      {hasSelectedTopic ? (
         <div
           className="rounded-xl border border-cyan-200/80 bg-gradient-to-br from-cyan-50/80 to-white px-4 py-3 text-sm text-slate-700"
           role="status"
