@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Mail, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { siteConfig } from "@/app.config";
+import { resolveContactInitialPlanId } from "@/lib/resolve-contact-plan-id";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -20,8 +21,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function ContattiPage({ searchParams }: PageProps) {
+export default async function ContattiPage({
+  params,
+  searchParams,
+}: PageProps) {
+  const { locale } = await params;
   const { topic, plan, section } = await searchParams;
+  const initialPlanId = await resolveContactInitialPlanId(locale, topic, plan);
   const t = await getTranslations("contactsPage");
 
   return (
@@ -70,6 +76,7 @@ export default async function ContattiPage({ searchParams }: PageProps) {
               key={`${topic ?? ""}-${plan ?? ""}-${section ?? ""}`}
               defaultTopic={topic ?? ""}
               defaultPlan={plan ?? ""}
+              initialPlanId={initialPlanId}
               defaultSection={section ?? ""}
             />
           </div>

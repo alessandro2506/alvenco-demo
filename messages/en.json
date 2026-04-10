@@ -55,8 +55,8 @@
       }
     ],
     "pricingIntroEyebrow": "Clear investment",
-    "pricingIntroTitle": "Plans built to monetise and scale",
-    "pricingIntroBody": "Three distinct product lines: website, mobile app and e-commerce. Each block has three scroll-animated tabs so you can compare ROI quickly.",
+    "pricingIntroTitle": "Tailored solutions to grow your business.",
+    "pricingIntroBody": "From web development to mobile apps and e-commerce: explore our modular plans designed to maximise your results and scale your digital presence.",
     "ctaBandTitle": "Need a tailored plan or a free audit?",
     "ctaBandBody": "Tell us your goals and timeline — we reply within one business day.",
     "ctaBandButton": "Talk to us"
@@ -215,8 +215,14 @@
     "submitting": "Sending…",
     "success": "Message sent. We’ll get back to you shortly.",
     "errorTopic": "Please select a topic.",
+    "errorPlan": "Please select a plan from the list.",
+    "errorMessageEmpty": "Please enter a message.",
     "errorNetwork": "Network error. Please try again.",
-    "errorGeneric": "Could not send."
+    "errorGeneric": "Could not send.",
+    "selectPlan": "Choose your plan",
+    "selectPlanPlaceholder": "— Select —",
+    "messageDetailsLabel": "Additional details (optional)",
+    "messagePlanIncluded": "Plan summary (included in your message)"
   },
   "contactsPage": {
     "eyebrow": "Contact",

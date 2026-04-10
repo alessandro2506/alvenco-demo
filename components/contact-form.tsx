@@ -3,31 +3,81 @@
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { CONTACT_TOPICS, type ContactTopic, isContactTopic } from "@/lib/contact";
+import {
+  CONTACT_TOPICS,
+  type ContactTopic,
+  isContactTopic,
+} from "@/lib/contact";
+import {
+  formatPlanMessageBlock,
+  type PlanForMessage,
+} from "@/lib/format-plan-message";
 
 type Props = {
   defaultTopic?: string;
   defaultPlan?: string;
+  /** Id piano da query (?plan=) risolto lato server per evitare hydration mismatch. */
+  initialPlanId?: string;
   defaultSection?: string;
 };
+
+function topicNeedsPlan(topic: ContactTopic | ""): boolean {
+  return topic === "web" || topic === "mobile" || topic === "ecommerce";
+}
 
 export function ContactForm({
   defaultTopic = "",
   defaultPlan = "",
+  initialPlanId = "",
   defaultSection = "",
 }: Props) {
   const t = useTranslations("contactForm");
+  const tWeb = useTranslations("pricingWeb");
+  const tMob = useTranslations("pricingMobile");
+  const tEco = useTranslations("pricingEcommerce");
   const locale = useLocale();
+
   const [topic, setTopic] = useState<ContactTopic | "">(() =>
     isContactTopic(defaultTopic) ? defaultTopic : "",
   );
+  const [selectedPlanId, setSelectedPlanId] = useState(initialPlanId);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [messageExtra, setMessageExtra] = useState("");
+  const [messageOther, setMessageOther] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle",
   );
   const [errorMessage, setErrorMessage] = useState("");
+
+  const pricingPlans = useMemo((): PlanForMessage[] => {
+    if (topic === "web")
+      return (tWeb.raw("plans") as PlanForMessage[]) ?? [];
+    if (topic === "mobile")
+      return (tMob.raw("plans") as PlanForMessage[]) ?? [];
+    if (topic === "ecommerce")
+      return (tEco.raw("plans") as PlanForMessage[]) ?? [];
+    return [];
+  }, [topic, tWeb, tMob, tEco]);
+
+  const selectedPlan = useMemo(
+    () => pricingPlans.find((p) => p.id === selectedPlanId),
+    [pricingPlans, selectedPlanId],
+  );
+
+  const planBlock = useMemo(
+    () => (selectedPlan ? formatPlanMessageBlock(selectedPlan) : ""),
+    [selectedPlan],
+  );
+
+  const composedMessage = useMemo(() => {
+    if (topicNeedsPlan(topic)) {
+      const extra = messageExtra.trim();
+      if (!planBlock) return extra;
+      return extra ? `${planBlock}\n\n${extra}` : planBlock;
+    }
+    return messageOther;
+  }, [topic, planBlock, messageExtra, messageOther]);
 
   const topicOptions = useMemo(
     () => [
@@ -51,6 +101,8 @@ export function ContactForm({
   const planLabel = useMemo(() => defaultPlan.trim(), [defaultPlan]);
   const sectionLabel = useMemo(() => defaultSection.trim(), [defaultSection]);
 
+  const showPlanSelect = topicNeedsPlan(topic) && pricingPlans.length > 0;
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!topic || !isContactTopic(topic)) {
@@ -58,6 +110,27 @@ export function ContactForm({
       setStatus("error");
       return;
     }
+    if (topicNeedsPlan(topic)) {
+      if (!selectedPlanId || !selectedPlan) {
+        setErrorMessage(t("errorPlan"));
+        setStatus("error");
+        return;
+      }
+    } else if (!messageOther.trim()) {
+      setErrorMessage(t("errorMessageEmpty"));
+      setStatus("error");
+      return;
+    }
+
+    const msg = composedMessage.trim();
+    if (!msg) {
+      setErrorMessage(
+        topicNeedsPlan(topic) ? t("errorPlan") : t("errorMessageEmpty"),
+      );
+      setStatus("error");
+      return;
+    }
+
     setStatus("loading");
     setErrorMessage("");
     try {
@@ -68,8 +141,8 @@ export function ContactForm({
           name,
           email,
           topic,
-          message,
-          plan: planLabel,
+          message: msg,
+          plan: selectedPlan?.name ?? planLabel,
           section: sectionLabel,
           locale,
         }),
@@ -85,7 +158,9 @@ export function ContactForm({
       setStatus("success");
       setName("");
       setEmail("");
-      setMessage("");
+      setMessageExtra("");
+      setMessageOther("");
+      setSelectedPlanId("");
       setTopic(isContactTopic(defaultTopic) ? defaultTopic : "");
     } catch {
       setErrorMessage(t("errorNetwork"));
@@ -170,15 +245,11 @@ export function ContactForm({
           name="topic"
           required
           value={topic}
-          onChange={(e) =>
-            setTopic(
-              e.target.value === ""
-                ? ""
-                : isContactTopic(e.target.value)
-                  ? e.target.value
-                  : "",
-            )
-          }
+          onChange={(e) => {
+            const v = e.target.value;
+            setTopic(v === "" ? "" : isContactTopic(v) ? v : "");
+            setSelectedPlanId("");
+          }}
           disabled={status === "loading"}
           className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-cyan-500/40 transition focus:border-cyan-400 focus:ring-2 disabled:opacity-60"
         >
@@ -189,25 +260,91 @@ export function ContactForm({
           ))}
         </select>
       </div>
-      <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-slate-700"
-        >
-          {t("message")}
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={5}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          disabled={status === "loading"}
-          className="mt-1.5 w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-cyan-500/40 transition focus:border-cyan-400 focus:ring-2 disabled:opacity-60"
-          placeholder={t("messagePlaceholder")}
-        />
-      </div>
+
+      {showPlanSelect ? (
+        <div>
+          <label
+            htmlFor="contact-plan"
+            className="block text-sm font-medium text-slate-700"
+          >
+            {t("selectPlan")}
+          </label>
+          <select
+            id="contact-plan"
+            name="plan"
+            required
+            value={selectedPlanId}
+            onChange={(e) => setSelectedPlanId(e.target.value)}
+            disabled={status === "loading"}
+            className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-cyan-500/40 transition focus:border-cyan-400 focus:ring-2 disabled:opacity-60"
+          >
+            <option value="">{t("selectPlanPlaceholder")}</option>
+            {pricingPlans.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      ) : null}
+
+      {topicNeedsPlan(topic) ? (
+        <div>
+          <span className="block text-sm font-medium text-slate-700">
+            {t("message")}
+          </span>
+          <div className="mt-1.5 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm ring-cyan-500/40 focus-within:ring-2">
+            {planBlock ? (
+              <div className="border-b border-slate-100 bg-slate-50/90 px-4 py-3">
+                <p className="text-xs font-medium uppercase tracking-wide text-cyan-700">
+                  {t("messagePlanIncluded")}
+                </p>
+                <pre className="mt-2 whitespace-pre-wrap break-words font-sans text-sm font-semibold leading-relaxed text-slate-900">
+                  {planBlock}
+                </pre>
+              </div>
+            ) : (
+              <p className="border-b border-dashed border-slate-100 px-4 py-3 text-sm text-slate-500">
+                {t("selectPlanPlaceholder")}
+              </p>
+            )}
+            <label htmlFor="message-extra" className="sr-only">
+              {t("messageDetailsLabel")}
+            </label>
+            <textarea
+              id="message-extra"
+              name="messageExtra"
+              rows={4}
+              value={messageExtra}
+              onChange={(e) => setMessageExtra(e.target.value)}
+              disabled={status === "loading"}
+              placeholder={t("messagePlaceholder")}
+              className="w-full resize-y border-0 bg-transparent px-4 py-3 text-sm text-slate-900 outline-none ring-0 focus:ring-0 disabled:opacity-60"
+            />
+          </div>
+        </div>
+      ) : (
+        <div>
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-slate-700"
+          >
+            {t("message")}
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows={5}
+            value={messageOther}
+            onChange={(e) => setMessageOther(e.target.value)}
+            disabled={status === "loading"}
+            className="mt-1.5 w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-cyan-500/40 transition focus:border-cyan-400 focus:ring-2 disabled:opacity-60"
+            placeholder={t("messagePlaceholder")}
+          />
+        </div>
+      )}
+
       <button
         type="submit"
         disabled={status === "loading"}

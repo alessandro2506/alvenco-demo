@@ -55,8 +55,8 @@
       }
     ],
     "pricingIntroEyebrow": "Investimento chiaro",
-    "pricingIntroTitle": "Piani pensati per monetizzare e scalare",
-    "pricingIntroBody": "Tre linee di prodotto distinte: sito, app mobile ed e-commerce. Ogni blocco ha tre tab animate al scroll per confrontare rapidamente il ROI.",
+    "pricingIntroTitle": "Soluzioni su misura per far crescere il tuo business.",
+    "pricingIntroBody": "Dallo sviluppo web alle applicazioni mobile, fino all'e-commerce: scopri i nostri piani modulari progettati per massimizzare i tuoi risultati e scalare la tua presenza digitale.",
     "ctaBandTitle": "Vuoi un piano su misura o un audit gratuito?",
     "ctaBandBody": "Raccontaci obiettivi e timeline: rispondiamo entro un giorno lavorativo.",
     "ctaBandButton": "Parla con noi"
@@ -215,8 +215,14 @@
     "submitting": "Invio in corso…",
     "success": "Messaggio inviato. Ti risponderemo al più presto.",
     "errorTopic": "Seleziona un argomento.",
+    "errorPlan": "Seleziona un piano dall’elenco.",
+    "errorMessageEmpty": "Inserisci un messaggio.",
     "errorNetwork": "Errore di rete. Riprova.",
-    "errorGeneric": "Invio non riuscito."
+    "errorGeneric": "Invio non riuscito.",
+    "selectPlan": "Scegli il piano",
+    "selectPlanPlaceholder": "— Seleziona —",
+    "messageDetailsLabel": "Dettagli aggiuntivi (opzionale)",
+    "messagePlanIncluded": "Riepilogo piano (incluso nel messaggio)"
   },
   "contactsPage": {
     "eyebrow": "Contatti",
