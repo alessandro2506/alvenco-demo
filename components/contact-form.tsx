@@ -104,16 +104,24 @@ export function ContactForm({
 
   const planLabel = useMemo(() => defaultPlan.trim(), [defaultPlan]);
   const sectionLabel = useMemo(() => defaultSection.trim(), [defaultSection]);
+  const visiblePlanLabel = selectedPlan?.name ?? planLabel;
 
   const showPlanSelect = topicNeedsPlan(topic) && pricingPlans.length > 0;
 
-  function clearContactContextFromUrl() {
-    // Se il form arriva dalla home con query precompilata, la rimuoviamo
-    // appena l'utente cambia argomento per evitare invii incoerenti.
-    if (!searchParams.has("topic") && !searchParams.has("plan") && !searchParams.has("section")) {
-      return;
-    }
-    router.replace(pathname, { scroll: false });
+  function syncContactQuery(params: {
+    topic?: string;
+    plan?: string;
+    section?: string;
+  }) {
+    const next = new URLSearchParams(searchParams.toString());
+    if (params.topic) next.set("topic", params.topic);
+    else next.delete("topic");
+    if (params.plan) next.set("plan", params.plan);
+    else next.delete("plan");
+    if (params.section) next.set("section", params.section);
+    else next.delete("section");
+    const qs = next.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   }
 
   async function onSubmit(e: React.FormEvent) {
@@ -189,15 +197,15 @@ export function ContactForm({
       className="space-y-5"
       onSubmit={onSubmit}
     >
-      {planLabel || sectionLabel ? (
+      {visiblePlanLabel || sectionLabel ? (
         <div
           className="rounded-xl border border-cyan-200/80 bg-gradient-to-br from-cyan-50/80 to-white px-4 py-3 text-sm text-slate-700"
           role="status"
         >
           <span className="font-semibold text-slate-900">{t("quoteBanner")}</span>{" "}
-          {planLabel ? (
+          {visiblePlanLabel ? (
             <>
-              {t("planWord")} <strong>{planLabel}</strong>
+              {t("planWord")} <strong>{visiblePlanLabel}</strong>
               {sectionLabel ? " · " : ""}
             </>
           ) : null}
@@ -262,14 +270,10 @@ export function ContactForm({
             const v = e.target.value;
             const nextTopic = v === "" ? "" : isContactTopic(v) ? v : "";
             setTopic(nextTopic);
-            setName("");
-            setEmail("");
-            setMessageExtra("");
-            setMessageOther("");
             setSelectedPlanId("");
             setStatus("idle");
             setErrorMessage("");
-            clearContactContextFromUrl();
+            syncContactQuery({ topic: nextTopic || undefined });
           }}
           disabled={status === "loading"}
           className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-cyan-500/40 transition focus:border-cyan-400 focus:ring-2 disabled:opacity-60"
@@ -295,7 +299,18 @@ export function ContactForm({
             name="plan"
             required
             value={selectedPlanId}
-            onChange={(e) => setSelectedPlanId(e.target.value)}
+            onChange={(e) => {
+              const nextPlanId = e.target.value;
+              const nextPlanName =
+                pricingPlans.find((p) => p.id === nextPlanId)?.name ?? "";
+              setSelectedPlanId(nextPlanId);
+              setStatus("idle");
+              setErrorMessage("");
+              syncContactQuery({
+                topic: topic || undefined,
+                plan: nextPlanName || undefined,
+              });
+            }}
             disabled={status === "loading"}
             className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-cyan-500/40 transition focus:border-cyan-400 focus:ring-2 disabled:opacity-60"
           >
