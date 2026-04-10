@@ -106,7 +106,10 @@ export function ContactForm({
   const sectionLabel = useMemo(() => defaultSection.trim(), [defaultSection]);
   const visiblePlanLabel = selectedPlan?.name ?? planLabel;
   const currentTopicLabel = useMemo(
-    () => topicOptions.find((opt) => opt.value === topic)?.label ?? "",
+    () =>
+      topic && topic !== ""
+        ? topicOptions.find((opt) => opt.value === topic)?.label ?? ""
+        : "",
     [topicOptions, topic],
   );
 
