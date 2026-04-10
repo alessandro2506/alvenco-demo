@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   CONTACT_TOPICS,
@@ -36,6 +37,9 @@ export function ContactForm({
   const tMob = useTranslations("pricingMobile");
   const tEco = useTranslations("pricingEcommerce");
   const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const [topic, setTopic] = useState<ContactTopic | "">(() =>
     isContactTopic(defaultTopic) ? defaultTopic : "",
@@ -102,6 +106,15 @@ export function ContactForm({
   const sectionLabel = useMemo(() => defaultSection.trim(), [defaultSection]);
 
   const showPlanSelect = topicNeedsPlan(topic) && pricingPlans.length > 0;
+
+  function clearContactContextFromUrl() {
+    // Se il form arriva dalla home con query precompilata, la rimuoviamo
+    // appena l'utente cambia argomento per evitare invii incoerenti.
+    if (!searchParams.has("topic") && !searchParams.has("plan") && !searchParams.has("section")) {
+      return;
+    }
+    router.replace(pathname, { scroll: false });
+  }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -247,8 +260,16 @@ export function ContactForm({
           value={topic}
           onChange={(e) => {
             const v = e.target.value;
-            setTopic(v === "" ? "" : isContactTopic(v) ? v : "");
+            const nextTopic = v === "" ? "" : isContactTopic(v) ? v : "";
+            setTopic(nextTopic);
+            setName("");
+            setEmail("");
+            setMessageExtra("");
+            setMessageOther("");
             setSelectedPlanId("");
+            setStatus("idle");
+            setErrorMessage("");
+            clearContactContextFromUrl();
           }}
           disabled={status === "loading"}
           className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none ring-cyan-500/40 transition focus:border-cyan-400 focus:ring-2 disabled:opacity-60"
