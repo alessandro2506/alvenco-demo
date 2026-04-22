@@ -71,6 +71,19 @@ npm run i18n:deepl
 - Favicon attuale: `app/favicon.ico`
 - Favicon precedente conservato: `app/favicon-old.ico`
 
+## Changelog sintetico (ultimi update)
+
+- i18n completa IT/EN con `next-intl` e switch lingua
+- Home aggiornata con nuovo intro pricing localizzato
+- Form contatti evoluto: piano opzionale, selezione condizionale, blocco piano nel messaggio
+- Query string contatti sincronizzata con topic/piano correnti
+- Banner contatti visibile solo dopo selezione reale dell'argomento
+- Pagina servizi: rimosso prefill sezione nel form
+- Frase informativa form semplificata (rimosso riferimento esplicito a Resend)
+- CTA hero verso sezione prezzi (`#prezzi`) e miglioramenti UX scroll
+- Settori servizi aggiunti (Hotel, Ristorazione, Logistica, Professionisti)
+- Favicon aggiornato con simbolo Alvenco, con backup del precedente
+
 ## Deploy
 
 Deploy consigliato su Vercel.
