@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alvenco Demo Web
 
-## Getting Started
+Sito marketing multi-lingua (IT/EN) sviluppato con Next.js App Router per presentare servizi, piani e raccogliere richieste tramite form contatti con invio email.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router)
+- React 19
+- `next-intl` per localizzazione IT/EN
+- Tailwind CSS 4
+- Resend per invio email da API route
+- Framer Motion per animazioni UI
+
+## Pagine principali
+
+- Home: `app/[locale]/page.tsx`
+- Servizi: `app/[locale]/servizi/page.tsx`
+- Vision: `app/[locale]/vision/page.tsx`
+- Contatti: `app/[locale]/contatti/page.tsx`
+
+## Localizzazione
+
+- Dizionari: `messages/it.json`, `messages/en.json`
+- Routing locale: `app/[locale]/...`
+- Traduzioni pricing e form allineate in entrambe le lingue
+
+## Form contatti
+
+Componente: `components/contact-form.tsx`  
+API: `app/api/contact/route.ts`
+
+Funzionalita principali:
+
+- Argomento obbligatorio, piano opzionale
+- Selezione piano condizionale per topic `web`, `mobile`, `ecommerce`
+- Blocco messaggio piano precompilato (nome + subtitle + prezzo) quando viene scelto un piano
+- Banner riepilogo mostrato solo dopo selezione reale di un argomento
+- URL sincronizzata con selezioni correnti (`topic`, `plan`) per coerenza stato
+- Supporto prefill da query string in pagina contatti
+
+## Variabili ambiente
+
+Copia `.env.example` in `.env.local` e valorizza:
+
+```bash
+RESEND_API_KEY=
+CONTACT_TO_EMAIL=
+RESEND_FROM_EMAIL=
+DEEPL_AUTH_KEY=
+```
+
+Note:
+
+- `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `RESEND_FROM_EMAIL` sono necessarie per l'invio email del form.
+- In Vercel i nomi devono combaciare esattamente con quelli sopra.
+- `DEEPL_AUTH_KEY` serve solo per lo script locale di traduzione.
+
+## Script utili
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run build
+npm run i18n:deepl
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Asset brand
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Logo componente: `components/alvenco-logo.tsx`
+- Simbolo ufficiale PNG: `public/simbolo-alvenco_ltd.png`
+- Favicon attuale: `app/favicon.ico`
+- Favicon precedente conservato: `app/favicon-old.ico`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy
 
-## Learn More
+Deploy consigliato su Vercel.
 
-To learn more about Next.js, take a look at the following resources:
+Prima del deploy:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Configura le environment variables richieste
+2. Esegui `npm run lint`
+3. Esegui `npm run build`
