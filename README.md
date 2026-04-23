@@ -67,7 +67,9 @@ npm run i18n:deepl
 ## Asset brand
 
 - Logo componente: `components/alvenco-logo.tsx`
-- Simbolo ufficiale PNG: `public/simbolo-alvenco_ltd.png`
+- Logo full SVG: `public/logo-full.svg` (usato nel sito)
+- Simbolo logo SVG: `public/Simbolo-logo-Alvenco_Ltd.svg` (sorgente favicon)
+- Simbolo ufficiale PNG legacy: `public/simbolo-alvenco_ltd.png`
 - Favicon attuale: `app/favicon.ico`
 - Favicon precedente conservato: `app/favicon-old.ico`
 
@@ -83,6 +85,7 @@ npm run i18n:deepl
 - CTA hero verso sezione prezzi (`#prezzi`) e miglioramenti UX scroll
 - Settori servizi aggiunti (Hotel, Ristorazione, Logistica, Professionisti)
 - Favicon aggiornato con simbolo Alvenco, con backup del precedente
+- Logo sito migrato a SVG full + favicon rigenerata da simbolo SVG
 
 ## Deploy
 

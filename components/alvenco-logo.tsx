@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 
-const SYMBOL = "/simbolo-alvenco_ltd.png";
+const FULL_LOGO = "/logo-full.svg";
 
 type AlvencoLogoProps = {
   variant?: "hero" | "header";
@@ -11,51 +11,27 @@ type AlvencoLogoProps = {
   className?: string;
 };
 
-/**
- * Simbolo ufficiale (PNG) + wordmark. Il file deve avere canale alpha per evitare il “box” bianco.
- */
 export function AlvencoLogo({
   variant = "hero",
   linkToHome = false,
   className = "",
 }: AlvencoLogoProps) {
   const isHero = variant === "hero";
-  const markBox = isHero
-    ? "h-[4.5rem] w-[4.5rem] sm:h-[5.25rem] sm:w-[5.25rem]"
-    : "h-11 w-11 sm:h-[3.25rem] sm:w-[3.25rem]";
-  const wordmark = isHero
-    ? "text-[2.05rem] leading-none tracking-tight sm:text-[2.45rem]"
-    : "text-[1.2rem] leading-none tracking-tight sm:text-[1.55rem]";
-
-  const mark = (
-    <div className={`relative shrink-0 ${markBox}`}>
-      <Image
-        src={SYMBOL}
-        alt=""
-        fill
-        className="object-contain object-left"
-        sizes={isHero ? "84px" : "52px"}
-        priority={isHero}
-      />
-    </div>
-  );
+  const logoBox = isHero
+    ? "h-[4.75rem] w-[13.2rem] sm:h-[5.4rem] sm:w-[15rem]"
+    : "h-10 w-[9.8rem] sm:h-12 sm:w-[11.8rem]";
 
   const inner = (
-    <span
-      className={`inline-flex items-center gap-2.5 sm:gap-3.5 ${className}`}
-    >
-      {mark}
-      <span className={`font-bold text-slate-900 ${wordmark}`}>
-        Alvenco
-        <span
-          className={
-            isHero
-              ? "ml-1 align-top text-[0.45em] font-semibold text-slate-600"
-              : "ml-0.5 align-top text-[0.48em] font-semibold text-slate-600"
-          }
-        >
-          Ltd
-        </span>
+    <span className={`inline-flex items-center ${className}`}>
+      <span className={`relative block shrink-0 ${logoBox}`}>
+        <Image
+          src={FULL_LOGO}
+          alt="Alvenco Ltd"
+          fill
+          className="object-contain object-left"
+          sizes={isHero ? "240px" : "190px"}
+          priority={isHero}
+        />
       </span>
     </span>
   );
