@@ -18,8 +18,8 @@ export function AlvencoLogo({
 }: AlvencoLogoProps) {
   const isHero = variant === "hero";
   const logoBox = isHero
-    ? "h-[4.75rem] w-[13.2rem] sm:h-[5.4rem] sm:w-[15rem]"
-    : "h-10 w-[9.8rem] sm:h-12 sm:w-[11.8rem]";
+    ? "h-[4.75rem] w-[13.2rem] sm:h-[6.2rem] sm:w-[17.2rem]"
+    : "h-10 w-[9.8rem] sm:h-[3.35rem] sm:w-[13.2rem]";
 
   const inner = (
     <span className={`inline-flex items-center ${className}`}>

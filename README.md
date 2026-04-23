@@ -86,6 +86,7 @@ npm run i18n:deepl
 - Settori servizi aggiunti (Hotel, Ristorazione, Logistica, Professionisti)
 - Favicon aggiornato con simbolo Alvenco, con backup del precedente
 - Logo sito migrato a SVG full + favicon rigenerata da simbolo SVG
+- Logo aumentato su desktop mantenendo scala mobile invariata
 
 ## Deploy
 
