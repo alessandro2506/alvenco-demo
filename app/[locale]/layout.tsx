@@ -6,7 +6,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { ScrollToTop } from "@/components/scroll-to-top";
-import { siteConfig } from "@/app.config";
+import { SchemaOrg } from "@/components/schema-org";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 
@@ -31,34 +31,62 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "meta" });
-  const ogLocale = locale === "en" ? siteConfig.localeEn : siteConfig.localeIt;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const localePath = locale === "it" ? "/it" : "/en";
+  const altLocalePath = locale === "it" ? "/en" : "/it";
 
   return {
-    metadataBase: new URL(siteConfig.url),
+    metadataBase: new URL("https://www.alvencoltd.co.uk"),
     title: {
-      default: t("defaultTitle"),
-      template: `%s | ${siteConfig.shortName}`,
+      default: t("title"),
+      template: "%s | Alvenco Ltd",
     },
-    description: t("defaultDescription"),
-    icons: {
-      icon: [{ url: "/simbolo-alvenco_ltd.png", type: "image/png" }],
-      apple: "/simbolo-alvenco_ltd.png",
-    },
-    alternates: {
-      canonical: "/",
-      languages: {
-        it: "/",
-        en: "/en",
+    description: t("description"),
+    keywords: t("keywords"),
+    authors: [{ name: "Alvenco Ltd", url: "https://www.alvencoltd.co.uk" }],
+    creator: "Alvenco Ltd",
+    publisher: "Alvenco Ltd",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
     },
     openGraph: {
-      title: siteConfig.shortName,
-      description: t("defaultDescription"),
-      url: siteConfig.url,
-      siteName: siteConfig.shortName,
-      locale: ogLocale,
       type: "website",
+      locale: locale === "it" ? "it_IT" : "en_GB",
+      alternateLocale: locale === "it" ? "en_GB" : "it_IT",
+      url: `https://www.alvencoltd.co.uk${localePath}`,
+      siteName: "Alvenco Ltd",
+      title: t("title"),
+      description: t("description"),
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "Alvenco Ltd — The UK–Italy Digital Studio",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: ["/og-image.png"],
+    },
+    alternates: {
+      canonical: `https://www.alvencoltd.co.uk${localePath}`,
+      languages: {
+        it: "https://www.alvencoltd.co.uk/it",
+        en: "https://www.alvencoltd.co.uk/en",
+        "x-default": `https://www.alvencoltd.co.uk${altLocalePath}`,
+      },
     },
   };
 }
@@ -80,6 +108,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <body className="flex min-h-full flex-col bg-white text-slate-900">
         <NextIntlClientProvider messages={messages}>
+          <SchemaOrg locale={locale} />
           <SiteHeader />
           <main className="flex-1">{children}</main>
           <SiteFooter />

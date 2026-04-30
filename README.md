@@ -97,3 +97,52 @@ Prima del deploy:
 1. Configura le environment variables richieste
 2. Esegui `npm run lint`
 3. Esegui `npm run build`
+
+## SEO & Performance
+
+### File SEO aggiunti
+- `app/sitemap.ts` — sitemap dinamica IT/EN con hreflang
+- `app/robots.ts` — robots.txt con riferimento sitemap
+- `app/opengraph-image.tsx` — OG image dinamica 1200x630
+- `components/schema-org.tsx` — Schema.org structured data (LocalBusiness + FAQPage + WebSite)
+
+### Metadata strategy
+- Ogni pagina ha `generateMetadata` con title/description localizzati
+- Hreflang configurato per IT/EN con x-default su EN
+- Open Graph e Twitter Card su tutte le pagine
+- Canonical URL su ogni pagina
+
+### Keyword targets
+| Mercato | Keyword primarie |
+|---|---|
+| UK | web agency Hertfordshire, app development UK, web developer Bishop's Stortford |
+| IT | agenzia web UK italiani, sviluppo sito web UK, app mobile UK Italia |
+| AI Search | digital studio UK Italy, web agency bilingual UK |
+
+### Performance targets (Lighthouse)
+- LCP < 2.5s
+- CLS < 0.1
+- INP < 200ms
+- Score > 90 su tutte le categorie
+
+## Posizionamento brand
+
+**Differenziatore principale**: Unico studio digitale che opera nativamente su mercato UK e mercato italiano.
+
+**Target cliente**:
+- Aziende italiane che vogliono espandersi in UK
+- Aziende UK che vogliono raggiungere il mercato italiano
+- PMI locali Hertfordshire senza sito o con sito obsoleto
+
+**CTA principale**: "Free site audit" (EN) / "Audit gratuito del sito" (IT)
+
+## Changelog SEO (Aprile 2026)
+- Aggiunta sitemap dinamica con hreflang IT/EN
+- Aggiunto robots.ts
+- Aggiunto Schema.org (LocalBusiness + FAQPage + WebSite)
+- Aggiornati metadata con keyword strategy duale UK/IT
+- Aggiunto OG image dinamico
+- Aggiornato copy hero e servizi con posizionamento UK–Italia
+- Aggiunto namespace FAQ nei messaggi IT/EN per AI search optimization
+- Aggiunta sezione FinalCTA con audit gratuito come lead magnet
+- Aggiunti security headers in next.config.ts

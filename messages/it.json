@@ -31,10 +31,10 @@
     "scrollToTop": "Torna in cima"
   },
   "hero": {
-    "headlineBefore": "Siti web, e-commerce e app mobile che",
-    "headlineAccent": "convertono e scalano",
-    "sub": "Team distribuito tra Regno Unito e Italia: ingegneria solida, UX orientata al business e supporto chiaro in inglese e italiano. Dal MVP al prodotto enterprise.",
-    "ctaPrimary": "Inizia ora",
+    "headlineBefore": "Lo studio digitale tra UK e Italia",
+    "headlineAccent": "che trasforma visitatori in clienti",
+    "sub": "Realizziamo siti web, e-commerce e app mobile per aziende che vogliono crescere su entrambi i mercati — con focus su conversione, SEO e crescita.",
+    "ctaPrimary": "Richiedi un audit gratuito",
     "ctaSecondary": "Scopri i servizi",
     "ctaPlans": "Vedi i piani",
     "trust": "SSL, best practice SEO e architetture cloud-ready."
@@ -368,5 +368,70 @@
     "fields": "Campi obbligatori mancanti o non validi.",
     "emailInvalid": "Email non valida.",
     "sendFailed": "Invio non riuscito. Riprova più tardi."
+  },
+  "Metadata": {
+    "title": "Agenzia Web UK e Italia — Siti, App ed E-commerce | Alvenco Ltd",
+    "description": "Alvenco Ltd realizza siti web, e-commerce e app mobile per aziende che operano tra UK e Italia. Sede a Bishop's Stortford, Hertfordshire. Audit gratuito del sito.",
+    "keywords": "agenzia web UK, sviluppo web Hertfordshire, sviluppo app mobile UK, e-commerce UK Italia, agenzia web italiana UK, React Native UK, Next.js UK, agenzia digitale italiani in UK"
+  },
+  "Hero": {
+    "badge": "UK · Italia · Studio Digitale",
+    "title": "Lo studio digitale tra UK e Italia",
+    "subtitle": "Realizziamo siti web, e-commerce e app mobile per aziende che vogliono crescere su entrambi i mercati — trasformando i visitatori in clienti.",
+    "cta_primary": "Richiedi un audit gratuito",
+    "cta_secondary": "Scopri i servizi"
+  },
+  "Problem": {
+    "headline": "La maggior parte dei siti attira visite. Pochi le convertono.",
+    "body": "Se il tuo sito non ti porta richieste qualificate, il problema non è il traffico — è la strategia. Analizziamo, riprogettiamo e ricostruiamo presenze digitali che funzionano davvero.",
+    "stat1_value": "3–5%",
+    "stat1_label": "Tasso di conversione che puntiamo a raggiungere",
+    "stat2_value": "48h",
+    "stat2_label": "Tempo per ricevere il tuo audit gratuito",
+    "stat3_value": "IT + UK",
+    "stat3_label": "Gli unici due mercati che serviamo — e che conosciamo in profondità"
+  },
+  "Services": {
+    "web": {
+      "title": "Siti web che generano contatti",
+      "description": "Dalla landing page al sito corporate completo. Costruiti per posizionarsi su Google e convertire i visitatori in richieste. Performance, mobile e SEO al primo posto."
+    },
+    "ecommerce": {
+      "title": "E-commerce ottimizzato per vendere",
+      "description": "Negozi online progettati per la conversione. UX, velocità e flussi di acquisto pensati per ridurre l'abbandono e aumentare il valore medio del carrello."
+    },
+    "mobile": {
+      "title": "App mobile con integrazione AI",
+      "description": "App native iOS e Android. Dal MVP al prodotto completo. Il nostro portfolio include una piattaforma AI civica utilizzata da enti locali del Regno Unito."
+    },
+    "expansion": {
+      "title": "Espansione digitale UK–Italia",
+      "description": "Operiamo in entrambi i mercati: gestiamo due lingue, due quadri normativi (UK GDPR e GDPR UE) e due culture commerciali. Nessuna altra agenzia locale lo fa."
+    }
+  },
+  "About": {
+    "headline": "Non costruiamo siti. Costruiamo sistemi che portano clienti.",
+    "body": "Alvenco Ltd è uno studio web e app con sede a Bishop's Stortford, Hertfordshire. Il nostro team opera tra UK e Italia, costruendo prodotti digitali per aziende che vogliono crescere in entrambi i mercati.",
+    "proof": "Il nostro portfolio include CivicAlert, una piattaforma AI civica distribuita presso enti locali del Regno Unito — la prova che costruiamo cose che scalano.",
+    "cta": "Prenota una chiamata gratuita di 15 minuti. Senza impegno."
+  },
+  "FAQ": {
+    "title": "Domande frequenti",
+    "q1": "Quanto costa un sito web?",
+    "a1": "I nostri siti partono da £600 per una landing page fino a £15.000+ per una piattaforma corporate completa. Ogni progetto riceve un preventivo personalizzato. Serviamo anche clienti italiani con prezzi in EUR.",
+    "q2": "Lavorate con aziende italiane?",
+    "a2": "Sì. Operiamo sia in UK che in Italia. Gestiamo contenuti in IT e EN, conformità UK GDPR e GDPR UE, e fatturazione in GBP ed EUR.",
+    "q3": "Cos'è l'audit gratuito del sito?",
+    "a3": "Una chiamata di 15 minuti in cui analizziamo il tuo sito attuale e ti diciamo esattamente cosa impedisce le conversioni. Senza impegno. Prenota tramite il modulo contatti.",
+    "q4": "Quanto tempo richiede un progetto web?",
+    "a4": "Landing page: 1–2 settimane. Siti completi: 4–8 settimane. E-commerce: 6–12 settimane. App mobile: 3–6 mesi in base alla complessità.",
+    "q5": "Quali tecnologie utilizzate?",
+    "a5": "Next.js, React Native, Tailwind CSS, TypeScript, Supabase e integrazioni AI (OpenAI, Google Vision). Scegliamo lo strumento giusto per ogni progetto, non quello di tendenza."
+  },
+  "FinalCTA": {
+    "headline": "Pronto a trasformare il tuo sito in un generatore di clienti?",
+    "subheadline": "Prenota un audit gratuito di 15 minuti. Ti diremo esattamente cosa blocca le conversioni del tuo sito — senza impegno, senza vendite aggressive.",
+    "button": "Prenota il tuo audit gratuito →",
+    "note": "Rispondiamo entro 24 ore."
   }
 }
