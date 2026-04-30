@@ -434,5 +434,35 @@
     "subheadline": "Book a free 15-minute audit call. We'll tell you exactly what's holding your site back — no commitment, no sales pitch.",
     "button": "Book your free audit →",
     "note": "We respond within 24 hours."
+  },
+  "Vision": {
+    "hero": {
+      "label": "About us",
+      "title": "A studio built between two countries, for the whole world",
+      "subtitle": "Alvenco Ltd is registered in the UK and operates with a distributed team across England and Italy. We build digital products for businesses that want to grow — regardless of where they are."
+    },
+    "story": {
+      "title": "Why Alvenco exists",
+      "body": "We started from a simple observation: too many businesses have a digital presence that doesn't work. Sites that don't rank, apps that don't convert, e-commerce that loses customers at checkout. Alvenco was born to fix this — with a pragmatic approach, clear pricing and measurable results."
+    },
+    "team": {
+      "title": "Who we are",
+      "body": "We are a small, senior team. Alessandro Fiscella leads development and technical architecture from Italy. Our commercial operations are based in Bishop's Stortford, Hertfordshire and is leaded by Vincenzo Sedita. We work remotely with clients across the UK, Europe and beyond — time zones are not a barrier."
+    },
+    "values": {
+      "title": "How we work",
+      "v1_title": "No jargon",
+      "v1_body": "We explain what we do in plain language. You always know what you're paying for and why.",
+      "v2_title": "Results first",
+      "v2_body": "Every decision is justified by a business outcome — more leads, lower bounce rate, faster load time.",
+      "v3_title": "Long-term thinking",
+      "v3_body": "We build things that last. Clean code, documented systems, no vendor lock-in.",
+      "v4_title": "Radical transparency",
+      "v4_body": "Fixed prices, clear timelines, honest assessments. If something isn't right for you, we'll tell you."
+    },
+    "cta": {
+      "title": "Ready to work together?",
+      "button": "Get in touch →"
+    }
   }
 }

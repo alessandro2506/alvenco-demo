@@ -434,5 +434,35 @@
     "subheadline": "Prenota un audit gratuito di 15 minuti. Ti diremo esattamente cosa blocca le conversioni del tuo sito — senza impegno, senza vendite aggressive.",
     "button": "Prenota il tuo audit gratuito →",
     "note": "Rispondiamo entro 24 ore."
+  },
+  "Vision": {
+    "hero": {
+      "label": "Chi siamo",
+      "title": "Uno studio costruito tra due paesi, per tutto il mondo",
+      "subtitle": "Alvenco Ltd è registrata nel Regno Unito e opera con un team distribuito tra Inghilterra e Italia. Realizziamo prodotti digitali per aziende che vogliono crescere — indipendentemente da dove si trovano."
+    },
+    "story": {
+      "title": "Perché esiste Alvenco",
+      "body": "Siamo partiti da una semplice osservazione: troppe aziende hanno una presenza digitale che non funziona. Siti che non si posizionano, app che non convertono, e-commerce che perde clienti al checkout. Alvenco nasce per risolvere questo — con un approccio pragmatico, prezzi chiari e risultati misurabili."
+    },
+    "team": {
+      "title": "Chi siamo",
+      "body": "Siamo uno small team composto da senior. Alessandro Fiscella guida lo sviluppo e l'architettura tecnica dall'Italia. Le operazioni commerciali hanno base a Bishop's Stortford, Hertfordshire e sono seguite da Vincenzo Sedita. Lavoriamo da remoto con clienti in UK, Europa e oltre — i fusi orari non sono un ostacolo."
+    },
+    "values": {
+      "title": "Come lavoriamo",
+      "v1_title": "Niente gergo tecnico",
+      "v1_body": "Spieghiamo quello che facciamo in modo chiaro. Sai sempre cosa stai pagando e perché.",
+      "v2_title": "Risultati prima di tutto",
+      "v2_body": "Ogni decisione è giustificata da un risultato di business — più lead, bounce rate più basso, caricamento più veloce.",
+      "v3_title": "Visione a lungo termine",
+      "v3_body": "Costruiamo progetti che durano. Codice pulito, sistemi documentati, nessun vendor lock-in.",
+      "v4_title": "Trasparenza totale",
+      "v4_body": "Prezzi fissi, tempistiche chiare, valutazioni oneste. Se qualcosa non è idonea per te, te lo diciamo."
+    },
+    "cta": {
+      "title": "Pronti a lavorare insieme?",
+      "button": "Contattaci →"
+    }
   }
 }
