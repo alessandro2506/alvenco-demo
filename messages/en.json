@@ -1,7 +1,7 @@
 {
   "meta": {
     "defaultTitle": "Alvenco — Web, E-commerce & Mobile",
-    "defaultDescription": "The digital studio building websites, e-commerce and mobile apps for UK and Italian businesses.",
+    "defaultDescription": "The digital studio based in the UK, built to work globally.",
     "servicesTitle": "Services",
     "servicesDescription": "Websites, mobile apps, cloud and SEO focused on ROI for UK and Italian clients.",
     "visionTitle": "Vision",
@@ -33,7 +33,7 @@
   "hero": {
     "headlineBefore": "The UK–Italy Digital Studio",
     "headlineAccent": "that turns visitors into clients",
-    "sub": "We build websites, e-commerce and mobile apps for businesses expanding across borders — with conversion, SEO and growth in mind.",
+    "sub": "We build websites, e-commerce and mobile apps for businesses that want to grow — wherever they are.",
     "ctaPrimary": "Get a free site audit",
     "ctaSecondary": "See our services",
     "ctaPlans": "View plans",
@@ -377,7 +377,7 @@
   "Hero": {
     "badge": "UK · Italy · Digital Studio",
     "title": "The UK–Italy Digital Studio",
-    "subtitle": "We build websites, e-commerce and mobile apps for businesses expanding across borders — converting more visitors into paying clients.",
+    "subtitle": "We build websites, e-commerce and mobile apps for businesses that want to grow — wherever they are.",
     "cta_primary": "Get a free site audit",
     "cta_secondary": "See our services"
   },

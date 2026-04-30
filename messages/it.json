@@ -1,7 +1,7 @@
 {
   "meta": {
     "defaultTitle": "Alvenco — Web, E-commerce & Mobile",
-    "defaultDescription": "Lo studio digitale che realizza siti, e-commerce e app mobile per aziende UK e italiane.",
+    "defaultDescription": "Lo studio digitale con sede in UK, costruito per lavorare con il mondo.",
     "servicesTitle": "Servizi",
     "servicesDescription": "Siti web, app mobile, cloud e SEO orientati al ROI per clienti UK e Italia.",
     "visionTitle": "Vision",
@@ -33,7 +33,7 @@
   "hero": {
     "headlineBefore": "Lo studio digitale tra UK e Italia",
     "headlineAccent": "che trasforma visitatori in clienti",
-    "sub": "Realizziamo siti web, e-commerce e app mobile per aziende che vogliono crescere su entrambi i mercati — con focus su conversione, SEO e crescita.",
+    "sub": "Realizziamo siti web, e-commerce e app mobile per aziende che vogliono crescere — ovunque si trovino.",
     "ctaPrimary": "Richiedi un audit gratuito",
     "ctaSecondary": "Scopri i servizi",
     "ctaPlans": "Vedi i piani",
@@ -377,7 +377,7 @@
   "Hero": {
     "badge": "UK · Italia · Studio Digitale",
     "title": "Lo studio digitale tra UK e Italia",
-    "subtitle": "Realizziamo siti web, e-commerce e app mobile per aziende che vogliono crescere su entrambi i mercati — trasformando i visitatori in clienti.",
+    "subtitle": "Realizziamo siti web, e-commerce e app mobile per aziende che vogliono crescere — ovunque si trovino.",
     "cta_primary": "Richiedi un audit gratuito",
     "cta_secondary": "Scopri i servizi"
   },
