@@ -34,7 +34,7 @@ export function SiteFooter() {
         </nav>
       </div>
       <div className="border-t border-slate-200/80 py-6 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} {siteConfig.name}. {tf("legal")}
+        {tf("legal")}
       </div>
     </footer>
   );
