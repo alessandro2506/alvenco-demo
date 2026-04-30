@@ -9,8 +9,8 @@ export const siteConfig = {
   localeIt: "it_IT",
   localeEn: "en_GB",
   links: {
-    email: "hello@alvenco.example",
-    phone: "+44 20 0000 0000",
+    email: "hello@alvenco.co.uk",
+    phone: "+44 7754 812247",
   },
 } as const;
 
