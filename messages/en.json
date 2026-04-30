@@ -1,7 +1,7 @@
 {
   "meta": {
     "defaultTitle": "Alvenco — Web, E-commerce & Mobile",
-    "defaultDescription": "Web, e-commerce and mobile apps (React Native / Flutter) for UK and Italian businesses. ROI, performance and scale.",
+    "defaultDescription": "The digital studio building websites, e-commerce and mobile apps for UK and Italian businesses.",
     "servicesTitle": "Services",
     "servicesDescription": "Websites, mobile apps, cloud and SEO focused on ROI for UK and Italian clients.",
     "visionTitle": "Vision",
@@ -25,7 +25,7 @@
   },
   "footer": {
     "navLabel": "Footer",
-    "legal": "Marketing demo."
+    "legal": "© 2026 Alvenco Ltd."
   },
   "common": {
     "scrollToTop": "Back to top"
