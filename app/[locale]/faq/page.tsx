@@ -19,7 +19,7 @@ export default async function FAQPage() {
   const t = await getTranslations("FAQ");
   const tNav = await getTranslations("nav");
 
-  const items = [1, 2, 3, 4, 5].map((i) => ({
+  const items = Array.from({ length: 15 }, (_, idx) => idx + 1).map((i) => ({
     question: t(`q${i}` as "q1"),
     answer: t(`a${i}` as "a1"),
   }));
