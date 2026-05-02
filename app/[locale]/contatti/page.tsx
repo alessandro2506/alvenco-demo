@@ -4,6 +4,7 @@ import { Mail } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { siteConfig } from "@/app.config";
+import { getWhatsAppHref } from "@/lib/get-whatsapp-href";
 import { resolveContactInitialPlanId } from "@/lib/resolve-contact-plan-id";
 
 type PageProps = {
@@ -32,6 +33,7 @@ export default async function ContattiPage({
   const initialPlanId = await resolveContactInitialPlanId(locale, topic, plan);
   const t = await getTranslations("contactsPage");
   const tc = await getTranslations("Contact");
+  const whatsappHref = getWhatsAppHref(locale);
 
   return (
     <div className="pb-24 pt-28 sm:pt-32">
@@ -61,7 +63,9 @@ export default async function ContattiPage({
                 <WhatsAppIcon className="h-5 w-5 shrink-0" />
               </span>
               <a
-                href={`tel:${siteConfig.links.phone.replace(/\s/g, "")}`}
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-medium hover:text-emerald-700"
               >
                 {siteConfig.links.phone}
