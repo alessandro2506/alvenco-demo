@@ -363,7 +363,7 @@
     "emailMessage": "Messaggio"
   },
   "apiErrors": {
-    "config": "Configurazione email incompleta. Imposta SMTP_USER, SMTP_PASS e CONTACT_TO_EMAIL.",
+    "config": "Configurazione email incompleta. Imposta SMTP_USER, SMTP_PASS, CONTACT_TO_EMAIL, SMTP_NOREPLY_USER e SMTP_NOREPLY_PASS.",
     "json": "JSON non valido",
     "body": "Body non valido",
     "fields": "Campi obbligatori mancanti o non validi.",

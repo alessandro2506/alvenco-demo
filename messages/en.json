@@ -363,7 +363,7 @@
     "emailMessage": "Message"
   },
   "apiErrors": {
-    "config": "Email not configured. Set SMTP_USER, SMTP_PASS and CONTACT_TO_EMAIL.",
+    "config": "Email not configured. Set SMTP_USER, SMTP_PASS, CONTACT_TO_EMAIL, SMTP_NOREPLY_USER and SMTP_NOREPLY_PASS.",
     "json": "Invalid JSON",
     "body": "Invalid body",
     "fields": "Required fields missing or invalid.",

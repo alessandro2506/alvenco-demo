@@ -19,11 +19,28 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const transporterNoReply = nodemailer.createTransport({
+  host: "smtps.aruba.it",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.SMTP_NOREPLY_USER,
+    pass: process.env.SMTP_NOREPLY_PASS,
+  },
+});
+
 export async function POST(request: Request) {
   const to = process.env.CONTACT_TO_EMAIL?.trim();
   const from = process.env.SMTP_USER?.trim();
+  const noReplyFrom = process.env.SMTP_NOREPLY_USER?.trim();
 
-  if (!to || !from || !process.env.SMTP_PASS) {
+  if (
+    !to ||
+    !from ||
+    !process.env.SMTP_PASS ||
+    !noReplyFrom ||
+    !process.env.SMTP_NOREPLY_PASS
+  ) {
     return NextResponse.json(
       { error: apiErrors("it").config },
       { status: 503 },
@@ -113,8 +130,8 @@ export async function POST(request: Request) {
     });
 
     // Email automatica di conferma al cliente
-    await transporter.sendMail({
-      from: `"Alvenco Ltd" <${from}>`,
+    await transporterNoReply.sendMail({
+      from: `"Alvenco Ltd" <${noReplyFrom}>`,
       to: email,
       subject:
         uiLocale === "en"

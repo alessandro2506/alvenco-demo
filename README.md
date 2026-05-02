@@ -45,13 +45,15 @@ Copia `.env.example` in `.env.local` e valorizza:
 ```bash
 SMTP_USER=
 SMTP_PASS=
+SMTP_NOREPLY_USER=
+SMTP_NOREPLY_PASS=
 CONTACT_TO_EMAIL=
 DEEPL_AUTH_KEY=
 ```
 
 Note:
 
-- `SMTP_USER`, `SMTP_PASS`, `CONTACT_TO_EMAIL` sono necessarie per l'invio email del form (SMTP Aruba `smtps.aruba.it:465`). Non committare mai `SMTP_PASS`.
+- `SMTP_USER`, `SMTP_PASS`, `CONTACT_TO_EMAIL` servono per la mail interna al team; `SMTP_NOREPLY_USER`, `SMTP_NOREPLY_PASS` per l’auto-reply al cliente (SMTP Aruba `smtps.aruba.it:465`). Non committare mai le password.
 - In Vercel i nomi devono combaciare esattamente con quelli sopra. Rimuovi le vecchie variabili Resend se presenti.
 - `DEEPL_AUTH_KEY` serve solo per lo script locale di traduzione.
 
