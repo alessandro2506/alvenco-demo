@@ -21,7 +21,7 @@ type PricingClusterProps = {
   description: string;
   plans: [PricingPlan, PricingPlan, PricingPlan];
   ctaLabel: string;
-  /** Query `topic` sulla pagina Contatti (allineato a Resend / form). */
+  /** Query `topic` sulla pagina Contatti (allineata al form / API contatti). */
   contactTopic: ContactTopic;
 };
 

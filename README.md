@@ -8,7 +8,7 @@ Sito marketing multi-lingua (IT/EN) sviluppato con Next.js App Router per presen
 - React 19
 - `next-intl` per localizzazione IT/EN
 - Tailwind CSS 4
-- Resend per invio email da API route
+- Nodemailer (SMTP Aruba) per invio email da API route e auto-reply al cliente
 - Framer Motion per animazioni UI
 
 ## Pagine principali
@@ -43,16 +43,16 @@ Funzionalita principali:
 Copia `.env.example` in `.env.local` e valorizza:
 
 ```bash
-RESEND_API_KEY=
+SMTP_USER=
+SMTP_PASS=
 CONTACT_TO_EMAIL=
-RESEND_FROM_EMAIL=
 DEEPL_AUTH_KEY=
 ```
 
 Note:
 
-- `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `RESEND_FROM_EMAIL` sono necessarie per l'invio email del form.
-- In Vercel i nomi devono combaciare esattamente con quelli sopra.
+- `SMTP_USER`, `SMTP_PASS`, `CONTACT_TO_EMAIL` sono necessarie per l'invio email del form (SMTP Aruba `smtps.aruba.it:465`). Non committare mai `SMTP_PASS`.
+- In Vercel i nomi devono combaciare esattamente con quelli sopra. Rimuovi le vecchie variabili Resend se presenti.
 - `DEEPL_AUTH_KEY` serve solo per lo script locale di traduzione.
 
 ## Script utili
@@ -81,7 +81,8 @@ npm run i18n:deepl
 - Query string contatti sincronizzata con topic/piano correnti
 - Banner contatti visibile solo dopo selezione reale dell'argomento
 - Pagina servizi: rimosso prefill sezione nel form
-- Frase informativa form semplificata (rimosso riferimento esplicito a Resend)
+- Invio email via Nodemailer (SMTP Aruba): mail interna + auto-reply al cliente
+- Frase informativa form semplificata (nessun nome provider nel copy utente)
 - CTA hero verso sezione prezzi (`#prezzi`) e miglioramenti UX scroll
 - Settori servizi aggiunti (Hotel, Ristorazione, Logistica, Professionisti)
 - Favicon aggiornato con simbolo Alvenco, con backup del precedente

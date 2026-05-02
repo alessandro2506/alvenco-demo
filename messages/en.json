@@ -363,7 +363,7 @@
     "emailMessage": "Message"
   },
   "apiErrors": {
-    "config": "Email not configured. Set RESEND_API_KEY, CONTACT_TO_EMAIL and RESEND_FROM_EMAIL.",
+    "config": "Email not configured. Set SMTP_USER, SMTP_PASS and CONTACT_TO_EMAIL.",
     "json": "Invalid JSON",
     "body": "Invalid body",
     "fields": "Required fields missing or invalid.",
