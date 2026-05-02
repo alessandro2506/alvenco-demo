@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { siteConfig } from "@/app.config";
 import { resolveContactInitialPlanId } from "@/lib/resolve-contact-plan-id";
 
@@ -55,12 +56,12 @@ export default async function ContattiPage({
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-500/15 text-cyan-700">
-                <Phone className="h-5 w-5" aria-hidden />
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/15">
+                <WhatsAppIcon className="h-5 w-5 shrink-0" />
               </span>
               <a
                 href={`tel:${siteConfig.links.phone.replace(/\s/g, "")}`}
-                className="font-medium hover:text-cyan-700"
+                className="font-medium hover:text-emerald-700"
               >
                 {siteConfig.links.phone}
               </a>
