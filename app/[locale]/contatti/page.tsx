@@ -31,6 +31,7 @@ export default async function ContattiPage({
   const { topic, plan, section } = await searchParams;
   const initialPlanId = await resolveContactInitialPlanId(locale, topic, plan);
   const t = await getTranslations("contactsPage");
+  const tc = await getTranslations("Contact");
 
   return (
     <div className="pb-24 pt-28 sm:pt-32">
@@ -67,6 +68,50 @@ export default async function ContattiPage({
               </a>
             </li>
           </ul>
+
+          <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6">
+            <h3 className="mb-4 font-semibold text-slate-900">
+              {tc("hours.title")}
+            </h3>
+            <div className="space-y-2 text-sm">
+              {[
+                {
+                  day: tc("hours.monThu"),
+                  time: tc("hours.monThuTime"),
+                  closed: false,
+                },
+                {
+                  day: tc("hours.fri"),
+                  time: tc("hours.friTime"),
+                  closed: false,
+                },
+                {
+                  day: tc("hours.sat"),
+                  time: tc("hours.satTime"),
+                  closed: true,
+                },
+                {
+                  day: tc("hours.sun"),
+                  time: tc("hours.sunTime"),
+                  closed: true,
+                },
+              ].map(({ day, time, closed }) => (
+                <div key={day} className="flex justify-between gap-4">
+                  <span className="text-slate-600">{day}</span>
+                  <span
+                    className={
+                      closed
+                        ? "text-slate-400"
+                        : "font-medium text-slate-900"
+                    }
+                  >
+                    {time}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-slate-500">{tc("hours.note")}</p>
+          </div>
         </div>
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:col-span-3">
           <h2 className="text-lg font-semibold text-slate-900">

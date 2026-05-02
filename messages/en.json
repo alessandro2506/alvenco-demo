@@ -233,6 +233,20 @@
     "formTitle": "Request form",
     "formHint": "Submissions are sent securely to our team by email."
   },
+  "Contact": {
+    "hours": {
+      "title": "Opening hours",
+      "monThu": "Monday – Thursday",
+      "monThuTime": "09:00 – 17:30",
+      "fri": "Friday",
+      "friTime": "09:00 – 14:30",
+      "sat": "Saturday",
+      "satTime": "Closed",
+      "sun": "Sunday",
+      "sunTime": "Closed",
+      "note": "We reply to emails and WhatsApp messages within 48 hours, even outside office hours."
+    }
+  },
   "servicesPage": {
     "eyebrow": "Services",
     "title": "ROI-first: technology in service of the business",

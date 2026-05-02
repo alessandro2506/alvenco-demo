@@ -233,6 +233,20 @@
     "formTitle": "Modulo richiesta",
     "formHint": "Le richieste sono inviate in modo sicuro al nostro team via email."
   },
+  "Contact": {
+    "hours": {
+      "title": "Orari di apertura",
+      "monThu": "Lunedì – Giovedì",
+      "monThuTime": "09:00 – 17:30",
+      "fri": "Venerdì",
+      "friTime": "09:00 – 14:30",
+      "sat": "Sabato",
+      "satTime": "Chiuso",
+      "sun": "Domenica",
+      "sunTime": "Chiuso",
+      "note": "Rispondiamo a email e messaggi WhatsApp entro 48 ore, anche fuori dall'orario di ufficio."
+    }
+  },
   "servicesPage": {
     "eyebrow": "Servizi",
     "title": "ROI-first: tecnologia al servizio del business",
