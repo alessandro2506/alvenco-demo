@@ -97,27 +97,31 @@ export async function POST(request: Request) {
   const autoReplyHtml =
     uiLocale === "en"
       ? `
-      <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
-        <img src="https://www.alvencoltd.co.uk/logo-full.svg" alt="Alvenco Ltd" style="height:48px;margin-bottom:24px" />
-        <h2 style="color:#1A3A5C">Thank you, ${escapeHtml(name)}!</h2>
-        <p>We have received your message and will get back to you within <strong>24 hours</strong>.</p>
-        <p><strong>Your enquiry:</strong> ${escapeHtml(topicLabel)}${plan ? ` — ${escapeHtml(plan)}` : ""}</p>
-        <hr style="border:none;border-top:1px solid #eee;margin:24px 0" />
-        <p style="color:#666;font-size:14px">For urgent questions contact us at <a href="mailto:hello@alvencoltd.co.uk">hello@alvencoltd.co.uk</a> or call <a href="tel:+447754812247">+44 7754 812247</a>.</p>
-        <p style="color:#666;font-size:14px">— The Alvenco Team<br/>Bishop's Stortford, Hertfordshire, UK</p>
-      </div>
-    `
+<div style="font-family:sans-serif;max-width:600px;margin:0 auto">
+  <img src="https://www.alvencoltd.co.uk/logo-full.svg" alt="Alvenco Ltd" style="height:48px;margin-bottom:24px" />
+  <h2 style="color:#1A3A5C">Thank you, ${escapeHtml(name)}!</h2>
+  <p>We have received your message and will get back to you within <strong>48 hours</strong>.</p>
+  <p><strong>Your enquiry:</strong> ${escapeHtml(topicLabel)}${plan ? ` — ${escapeHtml(plan)}` : ""}</p>
+  <p><strong>Message:</strong></p>
+  <p style="background:#f5f5f5;padding:12px;border-radius:6px;white-space:pre-wrap">${escapeHtml(message)}</p>
+  <hr style="border:none;border-top:1px solid #eee;margin:24px 0" />
+  <p style="color:#666;font-size:14px">For urgent questions contact us at <a href="mailto:hello@alvencoltd.co.uk">hello@alvencoltd.co.uk</a> or WhatsApp us at <a href="tel:+447754812247">+44 7754 812247</a>.</p>
+  <p style="color:#666;font-size:14px">— The Alvenco Team<br/>Bishop's Stortford, Hertfordshire, UK</p>
+</div>
+`
       : `
-      <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
-        <img src="https://www.alvencoltd.co.uk/logo-full.svg" alt="Alvenco Ltd" style="height:48px;margin-bottom:24px" />
-        <h2 style="color:#1A3A5C">Grazie, ${escapeHtml(name)}!</h2>
-        <p>Abbiamo ricevuto il tuo messaggio e ti risponderemo entro <strong>24 ore</strong>.</p>
-        <p><strong>La tua richiesta:</strong> ${escapeHtml(topicLabel)}${plan ? ` — ${escapeHtml(plan)}` : ""}</p>
-        <hr style="border:none;border-top:1px solid #eee;margin:24px 0" />
-        <p style="color:#666;font-size:14px">Per domande urgenti scrivici a <a href="mailto:hello@alvencoltd.co.uk">hello@alvencoltd.co.uk</a> o chiamaci al <a href="tel:+447754812247">+44 7754 812247</a>.</p>
-        <p style="color:#666;font-size:14px">— Il team Alvenco<br/>Bishop's Stortford, Hertfordshire, UK</p>
-      </div>
-    `;
+<div style="font-family:sans-serif;max-width:600px;margin:0 auto">
+  <img src="https://www.alvencoltd.co.uk/logo-full.svg" alt="Alvenco Ltd" style="height:48px;margin-bottom:24px" />
+  <h2 style="color:#1A3A5C">Grazie, ${escapeHtml(name)}!</h2>
+  <p>Abbiamo ricevuto il tuo messaggio e ti risponderemo entro <strong>48 ore</strong>.</p>
+  <p><strong>La tua richiesta:</strong> ${escapeHtml(topicLabel)}${plan ? ` — ${escapeHtml(plan)}` : ""}</p>
+  <p><strong>Messaggio:</strong></p>
+  <p style="background:#f5f5f5;padding:12px;border-radius:6px;white-space:pre-wrap">${escapeHtml(message)}</p>
+  <hr style="border:none;border-top:1px solid #eee;margin:24px 0" />
+  <p style="color:#666;font-size:14px">Per domande urgenti scrivici a <a href="mailto:hello@alvencoltd.co.uk">hello@alvencoltd.co.uk</a> o su WhatsApp al <a href="tel:+447754812247">+44 7754 812247</a>.</p>
+  <p style="color:#666;font-size:14px">— Il team Alvenco<br/>Bishop's Stortford, Hertfordshire, UK</p>
+</div>
+`;
 
   try {
     // Email interna al team Alvenco
