@@ -17,6 +17,7 @@ Sito marketing multi-lingua (IT/EN) sviluppato con Next.js App Router per presen
 - Servizi: `app/[locale]/servizi/page.tsx`
 - Vision: `app/[locale]/vision/page.tsx`
 - Contatti: `app/[locale]/contatti/page.tsx`
+- FAQ: `app/[locale]/faq/page.tsx`
 
 ## Localizzazione
 
@@ -37,6 +38,10 @@ Funzionalita principali:
 - Banner riepilogo mostrato solo dopo selezione reale di un argomento
 - URL sincronizzata con selezioni correnti (`topic`, `plan`) per coerenza stato
 - Supporto prefill da query string in pagina contatti
+- Fix reset form: rimossa `key` dinamica in `contatti/page.tsx` — nome/email non si perdono al cambio topic
+- Link WhatsApp con deep link `wa.me` e messaggio precompilato IT/EN (`lib/get-whatsapp-href.ts`)
+- Icona WhatsApp SVG inline sostituisce icona telefono
+- Orari di apertura nella pagina contatti (Lun–Gio 09:00–17:30, Ven 09:00–14:30, Sab–Dom chiusi)
 
 ## Variabili ambiente
 
@@ -77,6 +82,18 @@ npm run i18n:deepl
 
 ## Changelog sintetico (ultimi update)
 
+- Pagina FAQ dedicata con 15 domande/risposte in IT/EN, accordion Framer Motion, Schema.org FAQPage
+- Pagina Vision/About riscritta con contenuto reale: story, team, valori, CTA
+- Orari di apertura UK (37.5h/sett) nella pagina contatti
+- WhatsApp deep link con messaggio precompilato professionale IT/EN
+- Icona WhatsApp SVG inline con colore ufficiale #25D366
+- Fix reset form contatti al cambio topic (rimossa key dinamica)
+- Migrazione da Resend a Nodemailer SMTP Aruba (smtps.aruba.it:465)
+- Auto-reply cliente da no-reply@alvencoltd.co.uk: 48h, messaggio incluso, IT/EN
+- Contatti aggiornati: hello@alvencoltd.co.uk, +44 7754 812247
+- Posizionamento brand aggiornato: studio UK-based, worldwide reach
+- Google Search Console verificata con record TXT su Aruba
+- WhatsApp Business configurato con messaggi automatici e risposte rapide
 - i18n completa IT/EN con `next-intl` e switch lingua
 - Home aggiornata con nuovo intro pricing localizzato
 - Form contatti evoluto: piano opzionale, selezione condizionale, blocco piano nel messaggio
@@ -120,7 +137,8 @@ Prima del deploy:
 |---|---|
 | UK | web agency Hertfordshire, app development UK, web developer Bishop's Stortford |
 | IT | agenzia web UK italiani, sviluppo sito web UK, app mobile UK Italia |
-| AI Search | digital studio UK Italy, web agency bilingual UK |
+| Global | web agency UK worldwide, digital studio UK Italy, MVP development UK |
+| AI Search | web agency UK Italy, digital studio UK-based worldwide, how much does a website cost UK |
 
 ### Performance targets (Lighthouse)
 - LCP < 2.5s
@@ -130,9 +148,10 @@ Prima del deploy:
 
 ## Posizionamento brand
 
-**Differenziatore principale**: Unico studio digitale che opera nativamente su mercato UK e mercato italiano.
+**Differenziatore principale**: Studio digitale con sede UK e team distribuito tra Inghilterra e Italia — lavoriamo con clienti worldwide.
 
 **Target cliente**:
+- Aziende worldwide che cercano un partner digitale senior
 - Aziende italiane che vogliono espandersi in UK
 - Aziende UK che vogliono raggiungere il mercato italiano
 - PMI locali Hertfordshire senza sito o con sito obsoleto
