@@ -74,7 +74,6 @@ export default async function ContattiPage({
           <p className="mt-1 text-sm text-slate-600">{t("formHint")}</p>
           <div className="mt-6">
             <ContactForm
-              key={`${topic ?? ""}-${plan ?? ""}-${section ?? ""}`}
               defaultTopic={topic ?? ""}
               defaultPlan={plan ?? ""}
               initialPlanId={initialPlanId}
