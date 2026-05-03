@@ -198,16 +198,16 @@ export default async function BlogPostPage({ params }: Props) {
       {/* CTA bottom */}
       <div className="mt-16 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-600/5 via-white to-cyan-500/10 p-8 text-center">
         <p className="text-lg font-semibold text-slate-900">
-          Need help with your digital presence?
+          {locale === "it" ? "Hai bisogno di supporto per la tua presenza digitale?" : "Need help with your digital presence?"}
         </p>
         <p className="mt-2 text-slate-600">
-          Free site audit — we reply within one business day.
+          {locale === "it" ? "Audit gratuito del sito — rispondiamo entro un giorno lavorativo." : "Free site audit — we reply within one business day."}
         </p>
         <Link
           href="/contatti"
           className="mt-6 inline-flex rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition hover:brightness-105"
         >
-          Get a free audit →
+          {locale === "it" ? "Richiedi un audit gratuito →" : "Get a free audit →"}
         </Link>
       </div>
     </article>
