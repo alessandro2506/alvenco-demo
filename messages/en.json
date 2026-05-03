@@ -14,6 +14,7 @@
     "services": "Services",
     "vision": "Vision",
     "faq": "FAQ",
+    "blog": "Blog",
     "contacts": "Contact",
     "quote": "Request a quote",
     "menu": "Menu",
@@ -375,6 +376,13 @@
     "emailName": "Name",
     "emailEmail": "Email",
     "emailMessage": "Message"
+  },
+  "blog": {
+    "eyebrow": "Insights",
+    "title": "Digital Growth Blog",
+    "subtitle": "Practical guides on web, apps, SEO and digital strategy for UK and international businesses.",
+    "empty": "No articles yet — check back soon.",
+    "readMore": "Read article"
   },
   "apiErrors": {
     "config": "Email not configured. Set SMTP_USER, SMTP_PASS, CONTACT_TO_EMAIL, SMTP_NOREPLY_USER and SMTP_NOREPLY_PASS.",

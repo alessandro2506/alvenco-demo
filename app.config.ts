@@ -20,5 +20,6 @@ export const navRoutes = [
   { href: "/servizi", key: "services" as const },
   { href: "/vision", key: "vision" as const },
   { href: "/faq", key: "faq" as const },
+  { href: "/blog", key: "blog" as const },
   { href: "/contatti", key: "contacts" as const },
 ];

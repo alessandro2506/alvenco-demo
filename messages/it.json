@@ -14,6 +14,7 @@
     "services": "Servizi",
     "vision": "Vision",
     "faq": "FAQ",
+    "blog": "Blog",
     "contacts": "Contatti",
     "quote": "Richiedi preventivo",
     "menu": "Menu",
@@ -375,6 +376,13 @@
     "emailName": "Nome",
     "emailEmail": "Email",
     "emailMessage": "Messaggio"
+  },
+  "blog": {
+    "eyebrow": "Insights",
+    "title": "Blog — Crescita Digitale",
+    "subtitle": "Guide pratiche su web, app, SEO e strategia digitale per aziende italiane e internazionali.",
+    "empty": "Nessun articolo ancora — torna presto.",
+    "readMore": "Leggi l'articolo"
   },
   "apiErrors": {
     "config": "Configurazione email incompleta. Imposta SMTP_USER, SMTP_PASS, CONTACT_TO_EMAIL, SMTP_NOREPLY_USER e SMTP_NOREPLY_PASS.",
