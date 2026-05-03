@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.alvencoltd.co.uk";
   const locales = ["it", "en"];
-  const pages = ["", "/servizi", "/vision", "/contatti"];
+  const pages = ["", "/servizi", "/vision", "/contatti", "/faq"];
 
   const entries: MetadataRoute.Sitemap = [];
 
