@@ -71,7 +71,7 @@
       {
         "id": "web-a",
         "name": "Plan A",
-        "price": "€49/mo",
+        "price": "£90/mo",
         "subtitle": "Ideal for a stable, secure online presence.",
         "highlight": false,
         "bullets": [
@@ -83,7 +83,7 @@
       {
         "id": "web-b",
         "name": "Plan B",
-        "price": "€149/mo",
+        "price": "£160/mo",
         "subtitle": "For teams that want data and priority support.",
         "highlight": true,
         "bullets": [
@@ -96,7 +96,7 @@
       {
         "id": "web-c",
         "name": "Plan C",
-        "price": "€299/mo",
+        "price": "£280/mo",
         "subtitle": "Technical partner with a shared roadmap.",
         "highlight": false,
         "bullets": [
@@ -117,7 +117,7 @@
       {
         "id": "mob-starter",
         "name": "MVP App",
-        "price": "from €4,900",
+        "price": "from £6,500",
         "subtitle": "React Native or Flutter — fast time-to-market.",
         "highlight": false,
         "bullets": [
@@ -129,7 +129,7 @@
       {
         "id": "mob-growth",
         "name": "Cross-platform",
-        "price": "from €12,900",
+        "price": "from £12,000",
         "subtitle": "Same codebase, maximum coverage.",
         "highlight": true,
         "bullets": [
@@ -162,7 +162,7 @@
       {
         "id": "eco-starter",
         "name": "Store Essentials",
-        "price": "from €89/mo",
+        "price": "from £3,200",
         "subtitle": "Custom store + essential order management.",
         "highlight": false,
         "bullets": [
@@ -174,7 +174,7 @@
       {
         "id": "eco-inventory",
         "name": "Inventory Pro",
-        "price": "from €199/mo",
+        "price": "from £6,500",
         "subtitle": "Stock sync across multiple channels.",
         "highlight": true,
         "bullets": [
