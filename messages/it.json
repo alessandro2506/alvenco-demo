@@ -71,7 +71,7 @@
       {
         "id": "web-a",
         "name": "Plan A",
-        "price": "€49/mese",
+        "price": "€105/mese",
         "subtitle": "Ideale per presenza online stabile e sicura.",
         "highlight": false,
         "bullets": [
@@ -83,7 +83,7 @@
       {
         "id": "web-b",
         "name": "Plan B",
-        "price": "€149/mese",
+        "price": "€187/mese",
         "subtitle": "Per chi vuole crescere con dati e priorità.",
         "highlight": true,
         "bullets": [
@@ -96,7 +96,7 @@
       {
         "id": "web-c",
         "name": "Plan C",
-        "price": "€299/mese",
+        "price": "€328/mese",
         "subtitle": "Partner tecnico con roadmap condivisa.",
         "highlight": false,
         "bullets": [
@@ -117,7 +117,7 @@
       {
         "id": "mob-starter",
         "name": "MVP App",
-        "price": "da €4.900",
+        "price": "da €7.605",
         "subtitle": "React Native o Flutter — time-to-market rapido.",
         "highlight": false,
         "bullets": [
@@ -129,7 +129,7 @@
       {
         "id": "mob-growth",
         "name": "Cross-Platform",
-        "price": "da €12.900",
+        "price": "da €14.040",
         "subtitle": "Stesso codice, massima copertura.",
         "highlight": true,
         "bullets": [
@@ -162,7 +162,7 @@
       {
         "id": "eco-starter",
         "name": "Store Essentials",
-        "price": "da €89/mese",
+        "price": "da €3.745",
         "subtitle": "Custom store + gestione ordini essenziale.",
         "highlight": false,
         "bullets": [
@@ -174,7 +174,7 @@
       {
         "id": "eco-inventory",
         "name": "Inventory Pro",
-        "price": "da €199/mese",
+        "price": "da €7.605",
         "subtitle": "Sync magazzino e canali multipli.",
         "highlight": true,
         "bullets": [
