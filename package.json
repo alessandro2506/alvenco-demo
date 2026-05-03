@@ -10,6 +10,7 @@
     "i18n:deepl": "node scripts/deepl-sync-en.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.92.0",
     "framer-motion": "^12.38.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.8.0",
