@@ -5,14 +5,16 @@ import type { Metadata } from "next";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
-export async function generateStaticParams({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const posts = getAllPosts(locale);
-  return posts.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  const locales = ["en", "it"];
+  const results: { locale: string; slug: string }[] = [];
+  for (const locale of locales) {
+    const posts = getAllPosts(locale);
+    for (const p of posts) {
+      results.push({ locale, slug: p.slug });
+    }
+  }
+  return results;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
