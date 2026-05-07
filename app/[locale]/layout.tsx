@@ -85,7 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         it: "https://www.alvencoltd.co.uk/it",
         en: "https://www.alvencoltd.co.uk/en",
-        "x-default": `https://www.alvencoltd.co.uk${altLocalePath}`,
+        "x-default": "https://www.alvencoltd.co.uk/en",
       },
     },
   };
