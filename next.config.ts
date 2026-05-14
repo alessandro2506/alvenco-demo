@@ -4,6 +4,18 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      { source: "/servizi", destination: "/it/servizi", permanent: true },
+      { source: "/vision", destination: "/it/vision", permanent: true },
+      { source: "/faq", destination: "/it/faq", permanent: true },
+      { source: "/blog", destination: "/it/blog", permanent: true },
+      { source: "/contatti", destination: "/it/contatti", permanent: true },
+      { source: "/en/servizi", destination: "/en/services", permanent: true },
+      { source: "/en/vision", destination: "/en/about", permanent: true },
+      { source: "/en/contatti", destination: "/en/contacts", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

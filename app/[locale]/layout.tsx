@@ -33,8 +33,24 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
-  const localePath = locale === "it" ? "/it" : "/en";
-  const altLocalePath = locale === "it" ? "/en" : "/it";
+  const getLocalizedPath = (basePath: "/" | "/servizi" | "/vision" | "/contatti", targetLocale: "it" | "en") => {
+    if (targetLocale === "it") {
+      return basePath === "/" ? "/it" : `/it${basePath}`;
+    }
+
+    switch (basePath) {
+      case "/servizi":
+        return "/en/services";
+      case "/vision":
+        return "/en/about";
+      case "/contatti":
+        return "/en/contacts";
+      default:
+        return "/en";
+    }
+  };
+
+  const localePath = getLocalizedPath("/", locale as "it" | "en");
 
   return {
     metadataBase: new URL("https://www.alvencoltd.co.uk"),
@@ -84,9 +100,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `https://www.alvencoltd.co.uk${localePath}`,
       languages: {
-        it: "https://www.alvencoltd.co.uk/it",
-        en: "https://www.alvencoltd.co.uk/en",
-        "x-default": "https://www.alvencoltd.co.uk/en",
+        it: `https://www.alvencoltd.co.uk${getLocalizedPath("/", "it")}`,
+        en: `https://www.alvencoltd.co.uk${getLocalizedPath("/", "en")}`,
+        "x-default": `https://www.alvencoltd.co.uk${getLocalizedPath("/", "en")}`,
       },
     },
   };

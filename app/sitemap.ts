@@ -2,26 +2,52 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.alvencoltd.co.uk";
-  const locales = ["it", "en"];
-  const pages = ["", "/servizi", "/vision", "/contatti", "/faq", "/blog"];
+
+  const itPages = [
+    { path: "/it", priority: 1.0, freq: "weekly" },
+    { path: "/it/servizi", priority: 0.8, freq: "monthly" },
+    { path: "/it/vision", priority: 0.8, freq: "monthly" },
+    { path: "/it/faq", priority: 0.7, freq: "monthly" },
+    { path: "/it/blog", priority: 0.9, freq: "weekly" },
+    { path: "/it/contatti", priority: 0.8, freq: "monthly" },
+  ];
+
+  const enPages = [
+    { path: "/en", priority: 1.0, freq: "weekly" },
+    { path: "/en/services", priority: 0.8, freq: "monthly" },
+    { path: "/en/about", priority: 0.8, freq: "monthly" },
+    { path: "/en/faq", priority: 0.7, freq: "monthly" },
+    { path: "/en/blog", priority: 0.9, freq: "weekly" },
+    { path: "/en/contacts", priority: 0.8, freq: "monthly" },
+  ];
 
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const locale of locales) {
-    for (const page of pages) {
-      entries.push({
-        url: `${baseUrl}/${locale}${page}`,
-        lastModified: new Date(),
-        changeFrequency: page === "" ? "weekly" : "monthly",
-        priority: page === "" ? 1.0 : 0.8,
-        alternates: {
-          languages: {
-            it: `${baseUrl}/it${page}`,
-            en: `${baseUrl}/en${page}`,
-          },
+  for (const page of [...itPages, ...enPages]) {
+    const barePath = page.path.replace(/^\/(it|en)/, "");
+    const normalizedPath = barePath === "" ? "/" : barePath;
+    const enPath =
+      normalizedPath === "/servizi"
+        ? "/services"
+        : normalizedPath === "/vision"
+          ? "/about"
+          : normalizedPath === "/contatti"
+            ? "/contacts"
+            : normalizedPath;
+
+    entries.push({
+      url: `${baseUrl}${page.path}`,
+      lastModified: new Date(),
+      changeFrequency: page.freq as "weekly" | "monthly",
+      priority: page.priority,
+      alternates: {
+        languages: {
+          it: `${baseUrl}/it${normalizedPath === "/" ? "" : normalizedPath}`,
+          en: `${baseUrl}/en${enPath === "/" ? "" : enPath}`,
+          "x-default": `${baseUrl}/en${enPath === "/" ? "" : enPath}`,
         },
-      });
-    }
+      },
+    });
   }
 
   return entries;

@@ -5,7 +5,7 @@
 export const siteConfig = {
   name: "Alvenco Ltd",
   shortName: "Alvenco",
-  url: "https://alvenco-demo.vercel.app",
+  url: "https://www.alvencoltd.co.uk",
   localeIt: "it_IT",
   localeEn: "en_GB",
   links: {
@@ -16,10 +16,10 @@ export const siteConfig = {
 
 /** Path senza prefisso locale (next-intl aggiunge /en se serve). */
 export const navRoutes = [
-  { href: "/", key: "home" as const },
-  { href: "/servizi", key: "services" as const },
-  { href: "/vision", key: "vision" as const },
-  { href: "/faq", key: "faq" as const },
-  { href: "/blog", key: "blog" as const },
-  { href: "/contatti", key: "contacts" as const },
+  { href: "/" as const, key: "home" as const },
+  { href: "/servizi" as const, key: "services" as const },
+  { href: "/vision" as const, key: "vision" as const },
+  { href: "/faq" as const, key: "faq" as const },
+  { href: "/blog" as const, key: "blog" as const },
+  { href: "/contatti" as const, key: "contacts" as const },
 ];

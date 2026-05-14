@@ -39,12 +39,14 @@ export function PricingCluster({
 
   const contactHref = useMemo(() => {
     const section = (eyebrow ?? title).trim();
-    const params = new URLSearchParams({
-      topic: contactTopic,
-      plan: plans[active].name,
-      section,
-    });
-    return `/contatti?${params.toString()}`;
+    return {
+      pathname: "/contatti" as const,
+      query: {
+        topic: contactTopic,
+        plan: plans[active].name,
+        section,
+      },
+    };
   }, [contactTopic, plans, active, eyebrow, title]);
 
   return (
